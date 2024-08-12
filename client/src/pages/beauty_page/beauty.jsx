@@ -1,75 +1,30 @@
 import React from 'react';
-import './beauty.css'; // Ensure this CSS file includes your styles
+import { beautyProducts } from '../../Products/Products'; // Adjust the path
 
-const products = [
-  {
-    id: 1,
-    name: 'Product 1',
-    price: '$29.99',
-    image: 'https://img.etimg.com/photo/msid-99080556,imgsize-32858/VivoY56BlackEngine.jpg',
-  },
-  {
-    id: 2,
-    name: 'Product 2',
-    price: '$49.99',
-    image: 'https://img.etimg.com/photo/msid-99080556,imgsize-32858/VivoY56BlackEngine.jpg',
-  },
-  {
-    id: 1,
-    name: 'Product 1',
-    price: '$29.99',
-    image: 'https://img.etimg.com/photo/msid-99080556,imgsize-32858/VivoY56BlackEngine.jpg',
-  },
-  {
-    id: 2,
-    name: 'Product 2',
-    price: '$49.99',
-    image: 'https://img.etimg.com/photo/msid-99080556,imgsize-32858/VivoY56BlackEngine.jpg',
-  },
-  {
-    id: 1,
-    name: 'Product 1',
-    price: '$29.99',
-    image: 'https://img.etimg.com/photo/msid-99080556,imgsize-32858/VivoY56BlackEngine.jpg',
-  },
-  {
-    id: 2,
-    name: 'Product 2',
-    price: '$49.99',
-    image: 'https://img.etimg.com/photo/msid-99080556,imgsize-32858/VivoY56BlackEngine.jpg',
-  },
-  {
-    id: 1,
-    name: 'Product 1',
-    price: '$29.99',
-    image: 'https://img.etimg.com/photo/msid-99080556,imgsize-32858/VivoY56BlackEngine.jpg',
-  },
-  {
-    id: 2,
-    name: 'Product 2',
-    price: '$49.99',
-    image: 'https://img.etimg.com/photo/msid-99080556,imgsize-32858/VivoY56BlackEngine.jpg',
-  },
-  // Add more products as needed
-];
+const Beauty_page = ({ searchQuery }) => {
+  const filteredProducts = beautyProducts.filter(product =>
+    product.name.toLowerCase().includes(searchQuery.toLowerCase())
+  );
 
-const Beauty_page = () => {
   return (
     <div className="top-products-container">
-      <h1 className="heading">Beauty product</h1>
+      <h1 className="heading">Beauty Products</h1>
       <div className="top-products">
-        {products.map((product) => (
-          <div key={product.id} className="product">
-            <img src={product.image} alt={product.name} className="product-image" />
-            <h3 className="product-name">{product.name}</h3>
-            <p className="product-price">{product.price}</p>
-            <button className="add-to-cart-button">Add to Cart</button>
-          </div>
-        ))}
+        {filteredProducts.length > 0 ? (
+          filteredProducts.map((product) => (
+            <div key={product.id} className="product">
+              <img src={product.image} alt={product.name} className="product-image" />
+              <h3 className="product-name">{product.name}</h3>
+              <p className="product-price">{product.price}</p>
+              <button className="add-to-cart-button">Add to Cart</button>
+            </div>
+          ))
+        ) : (
+          <p>No products found</p>
+        )}
       </div>
     </div>
   );
 };
 
 export default Beauty_page;
-
