@@ -56,7 +56,7 @@ const products = [
 const Electronics_page = () => {
   return (
     <div className="top-products-container">
-      <h1 className="heading">Top Products</h1>
+      <h1 className="heading">Electronics Products</h1>
       <div className="top-products">
         {products.map((product) => (
           <div key={product.id} className="product">

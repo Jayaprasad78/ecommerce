@@ -30,6 +30,17 @@ import Footer from './Component/Footer/Fotter';
 
 //pages
 import   Electronics_page from './pages/electronics_page/electronics'
+import   Automotive_page from './pages/automotive_page/automotive'
+import   Beauty_page from './pages/beauty_page/beauty'
+import  Fashion_page  from './pages/fashion_page/fashion'
+import   Gifts_page from './pages/gifts_page/gifts'
+import  Health_page from './pages/health_page/health'
+import   Kitchen_page from './pages/kitchen_page/kitchen'
+import  Lugaagage_page from './pages/lugaagage_page/lugaagage'
+import   Makeup_page from './pages//makeup_page/makeup'
+import Petsupply_page from './pages/petsupply_page/petsupply'
+import   Sports from './pages/sports_page/sports'
+import Stationary_page  from './pages/stationary_page/stationary'
 
 
 
@@ -59,6 +70,17 @@ function App() {
                         </>
                     } />
                     <Route path="/electronics" element={< Electronics_page />} />
+                    <Route path="/automotive" element={<  Automotive_page />} />
+                    <Route path="/beauty" element={< Beauty_page />} />
+                    <Route path="/fashion" element={< Fashion_page />} />
+                    <Route path="/gifts" element={<  Gifts_page />} />
+                    <Route path="/health" element={<  Health_page />} />
+                    <Route path="/kitchen" element={<  Kitchen_page />} />
+                    <Route path="/luggage" element={<Lugaagage_page />} />
+                    <Route path="/makeup" element={< Makeup_page />} />
+                    <Route path="/petsupply" element={< Petsupply_page />} />
+                    <Route path="/sports" element={<  Sports />} />
+                    <Route path="/stationary" element={< Stationary_page />} />
                 </Routes>
                 <Footer />
             </div>

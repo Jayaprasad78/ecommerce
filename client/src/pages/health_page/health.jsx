@@ -1,5 +1,5 @@
 import React from 'react';
-import './electronics.css'; // Ensure this CSS file includes your styles
+import './health.css'; // Ensure this CSS file includes your styles
 
 const products = [
   {
@@ -53,10 +53,10 @@ const products = [
   // Add more products as needed
 ];
 
-const Electronics_page = () => {
+const Health_page = () => {
   return (
     <div className="top-products-container">
-      <h1 className="heading">Top Products</h1>
+      <h1 className="heading">Health</h1>
       <div className="top-products">
         {products.map((product) => (
           <div key={product.id} className="product">
@@ -71,5 +71,5 @@ const Electronics_page = () => {
   );
 };
 
-export default Electronics_page;
+export default Health_page;
 
