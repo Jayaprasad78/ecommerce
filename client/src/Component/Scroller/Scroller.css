@@ -1,0 +1,48 @@
+/* Container for horizontal scrolling */
+.scroll-container {
+    width: 100%; /* Full width of the viewport or container */
+    height: 100px; /* Adjust height to fit the images and labels */
+    overflow: hidden; /* Hide overflow to ensure seamless scrolling */
+    position: relative; /* Required for positioning the scrolling wrapper */
+}
+
+/* Wrapper for the content to be scrolled */
+.scroll-wrapper {
+    display: flex; /* Align items in a row */
+    position: absolute;
+    height: 100%; /* Ensure wrapper takes full height of container */
+    white-space: nowrap; /* Prevent wrapping */
+    animation: scroll-left 20s linear infinite; /* Apply animation */
+}
+
+/* Style for each item */
+.scroll-wrapper > div {
+    display: flex; /* Align image and text vertically */
+    flex-direction: column; /* Stack image and text vertically */
+    align-items: center; /* Center items horizontally */
+    padding: 0 10px; /* Space between items */
+}
+
+/* Style for each image */
+.scroll-wrapper img {
+    height: 60px; /* Set height */
+    width: 60px; /* Set width */
+    padding: 5px;
+    margin-bottom: 5px; /* Space between image and text */
+}
+
+/* Style for each label */
+.scroll-wrapper span {
+    font-size: 12px; /* Adjust font size */
+    text-align: center; /* Center align text */
+}
+
+/* Define the animation */
+@keyframes scroll-left {
+    0% {
+        transform: translateX(0); /* Start position */
+    }
+    100% {
+        transform: translateX(-50%); /* End position (halfway through the duplicated content) */
+    }
+}

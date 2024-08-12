@@ -1,0 +1,224 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&family=Oswald:wght@200..700&display=swap');
+.navbar
+{
+    background-color: blue;
+    display: flex;
+   
+    height: 70px;
+    width: 100%;
+}
+.logo
+{
+    height: 70px;
+    width: 85px; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;    
+    justify-content: center;
+    position: relative;
+ 
+
+}
+.logo .image-container
+{
+    position: absolute; 
+}
+.image-container .logo-img
+{
+   
+    height: 50px;
+    width: 50px;
+    margin-bottom: 8px;
+   
+}
+
+.text-container
+{
+    position: absolute;
+    margin-top:39px;
+    margin-left: 10px; 
+}
+
+.text-container .text
+{
+    font-family:"Cabin", sans-serif;
+     font-style: italic;
+     font-weight: 400;
+    margin: 0;
+    padding: 0;
+    margin-top: 100px;
+    color: white;
+    
+}
+.search-box
+{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    margin-left: 50px;
+}
+.search-box input
+{
+    position: absolute;
+    margin-top: 20px;
+    height:28px;
+    width: 290px;
+    border-radius: 10px;
+    padding-left: 35px;
+   
+
+}
+
+.search-box i
+{
+    position: absolute;
+    margin-top: 28px;
+    margin-left: 6px;
+}
+.top-offer{
+    display: flex;
+    flex-direction: column;
+ 
+}
+.top-offer img{
+    height: 30px;
+    width: 30px;
+    margin-top: 10px;
+    margin-left: 400px;
+    
+
+}
+.top-offer span
+{
+    margin-left: 380px;
+    color: white;
+    font-family:"Cabin", sans-serif;
+    
+
+
+}
+.buttons
+{
+    display: flex;
+    position: relative;
+   
+   
+}
+.buttons .button1
+{
+    position: absolute;
+    width: 200px;
+    margin-left: 100px;
+
+}
+
+.buttons .button1 button
+{
+    margin-top: 20px;
+    height: 32px;
+    width: 200px;
+}
+.buttons .button1 button img
+{
+    height: 25px;
+    margin-left: -70px;
+}
+.buttons .button1 .button1-class
+{
+    position: relative;
+
+}
+.buttons .button1 .button1-class img
+{
+    position: absolute;
+    margin-left: -95px;
+    margin-top: -12px;
+}
+.buttons .button1 .button1-class span
+{
+    position: absolute;
+    margin-left: -50px;
+    margin-top: -5px;
+}
+
+.buttons .button2
+{
+  position: absolute;
+  margin-left: 380px;
+  top: 20px;
+
+
+}
+.buttons .button2 button
+{
+    width:80px;
+    height: 30px;
+    border-radius: 8px;
+
+}
+
+.buttons .button3
+{
+    top: 20px;
+    position: absolute;
+  margin-left: 480px;
+
+
+}
+.buttons .button3 button
+{
+    width:80px;
+    height: 30px;
+    border-radius: 8px;
+    
+}
+
+.cart_userprofile{
+    display: flex;
+    position: relative;
+    
+
+}
+
+.shoping_cart img
+{
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    left:580px;
+    top:13px;
+   
+   
+}
+.shoping_cart span{
+    position: absolute;
+    left:589px;
+    top:45px;
+    color: white;
+    font-family:"Cabin", sans-serif;
+
+
+}
+.user_profile img
+{
+    position: absolute;
+    width: 35px;
+    height: 35px;
+    left:645px;
+    top:13px;
+   
+}
+.user_profile span{
+    position: absolute;
+    left:640px;
+    top:45px;
+    color: white;
+    font-family:"Cabin", sans-serif;
+
+}
+
+
+
+
+
