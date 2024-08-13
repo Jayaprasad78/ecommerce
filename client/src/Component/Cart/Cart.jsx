@@ -51,13 +51,16 @@ const Cart = ({ isAuthenticated }) => {
       setError(error.response ? error.response.data : error.message);
     }
   };
+  const handleCheckout = () => {
+    navigate('/checkout');
+  };
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error}</p>;
 
   // Calculate total amount
   const totalAmount = cartItems.reduce((total, item) => {
-    const price = parseFloat(item.price.replace('$', '')); // Remove dollar sign if present and convert to number
+    const price = parseFloat(item.price.replace('₹', '')); // Remove dollar sign if present and convert to number
     return total + price * item.quantity;
   }, 0);
 
@@ -84,8 +87,8 @@ const Cart = ({ isAuthenticated }) => {
           ))}
         </div>
       )}
-      <p className="total-amount">Total: ${totalAmount.toFixed(2)}</p>
-      <button className="checkout-button">Checkout</button>
+      <p className="total-amount">Total: ₹{totalAmount.toFixed(2)}</p>
+      <button className="checkout-button" onClick={handleCheckout}>Checkout</button>
     </div>
   );
 };

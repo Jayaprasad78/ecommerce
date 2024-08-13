@@ -3,14 +3,14 @@ const electronicsProducts = [
   {
     id: 1,
     name: 'Electronics1',
-    price: '$199.99',
+    price: '1500',
     image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQvg-aZreXB84S6bVcUWsLIPQkaH39sB_xDSg&s',
   },
   {
     id: 2,
     name: 'Electronics2',
-    price: '$299.99',
-    image: 'https://example.com/electronics2.jpg',
+    price: '2000',
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1PMJKS9sbGqi8X45YjLZxJwh7-qNCZxoXqg&s',
   },
   // Add more electronics products
 ];

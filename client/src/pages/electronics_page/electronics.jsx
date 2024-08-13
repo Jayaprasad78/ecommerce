@@ -75,7 +75,7 @@ const Electronics_page = ({ searchQuery, isAuthenticated }) => {
             <div key={product.id} className="product">
               <img src={product.image} alt={product.name} className="product-image" />
               <h3 className="product-name">{product.name}</h3>
-              <p className="product-price">${product.price}</p>
+              <p className="product-price">₹{product.price}</p>
               <div className="quantity-selector">
                 <button className="quantity-button" onClick={() => decreaseQuantity(product.id)}>-</button>
                 <span className="quantity">{quantities[product.id] || 1}</span>

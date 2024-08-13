@@ -23,6 +23,7 @@ import Stationary_page from './pages/stationary_page/stationary';
 import SignIn from './user_login_register/Signin/Signin';
 import SignUp from './user_login_register/Signup/Signup';
 import Cart from './Component/Cart/Cart'; // Import Cart
+import Checkout from './Component/Checkout/Checkout';
 
 import electronics from './assets/image/electronics.png';
 import fashion from './assets/image/fashion.png';
@@ -78,7 +79,9 @@ function App() {
             <Route path="/stationary" element={<Stationary_page />} />
             <Route path="/signin" element={<SignIn onSignIn={handleSignIn} />} />
             <Route path="/signup" element={<SignUp />} />
+
             <Route path="/cart" element={<Cart isAuthenticated={isAuthenticated} />} />
+            <Route path="/checkout" element={< Checkout />} />
           </Routes>
           <Footer />
         </div>
