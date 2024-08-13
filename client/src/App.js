@@ -1,4 +1,4 @@
-import React, {useState}from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { CartProvider } from './context/CartContext'; // Adjust path if needed
 import Navbar from './Component/Navbar/Navbar';
@@ -24,11 +24,11 @@ import SignIn from './user_login_register/Signin/Signin';
 import SignUp from './user_login_register/Signup/Signup';
 import Cart from './Component/Cart/Cart'; // Import Cart
 
-import electronics from './assets/image/electronics.png'
-import fashion from './assets/image/electronics.png'
-import sports from './assets/image/electronics.png'
-import automotive from './assets/image/electronics.png'
-import stationary from './assets/image/electronics.png'
+import electronics from './assets/image/electronics.png';
+import fashion from './assets/image/fashion.png';
+import sports from './assets/image/sports.png';
+import automotive from './assets/image/automotive.png';
+import stationary from './assets/image/stationary.png';
 
 function App() {
   const [searchQuery, setSearchQuery] = useState('');
@@ -64,8 +64,7 @@ function App() {
                 </>
               }
             />
-           <Route path="/electronics" element={<Electronics_page searchQuery={searchQuery} isAuthenticated={isAuthenticated} />} />
-
+            <Route path="/electronics" element={<Electronics_page searchQuery={searchQuery} isAuthenticated={isAuthenticated} />} />
             <Route path="/automotive" element={<Automotive_page />} />
             <Route path="/beauty" element={<Beauty_page searchQuery={searchQuery} />} />
             <Route path="/fashion" element={<Fashion_page />} />
@@ -79,7 +78,7 @@ function App() {
             <Route path="/stationary" element={<Stationary_page />} />
             <Route path="/signin" element={<SignIn onSignIn={handleSignIn} />} />
             <Route path="/signup" element={<SignUp />} />
-            <Route path="/cart" element={<Cart />} />
+            <Route path="/cart" element={<Cart isAuthenticated={isAuthenticated} />} />
           </Routes>
           <Footer />
         </div>

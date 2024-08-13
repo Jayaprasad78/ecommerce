@@ -49,7 +49,7 @@ const Electronics_page = ({ searchQuery, isAuthenticated }) => {
 
 
       try {
-        const response = await axios.post('http://localhost:5000/api/cart/add', cartItem, {
+        const response = await axios.post('http://localhost:5000/api/cart/additem', cartItem, {
           headers: {
             'Content-Type': 'application/json',
             'Authorization': `Bearer ${token}` // Include the JWT token
