@@ -64,7 +64,8 @@ function App() {
                 </>
               }
             />
-            <Route path="/electronics" element={<Electronics_page searchQuery={searchQuery} />} />
+           <Route path="/electronics" element={<Electronics_page searchQuery={searchQuery} isAuthenticated={isAuthenticated} />} />
+
             <Route path="/automotive" element={<Automotive_page />} />
             <Route path="/beauty" element={<Beauty_page searchQuery={searchQuery} />} />
             <Route path="/fashion" element={<Fashion_page />} />

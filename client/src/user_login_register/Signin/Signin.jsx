@@ -15,6 +15,13 @@ const SignIn = ({ onSignIn }) => {  // Add onSignIn prop
 
     try {
       const response = await axios.post('http://localhost:5000/api/auth/signin', { email, password });
+      const { token, user } = response.data;  // Extract token and user data from response
+
+      // Store the token in localStorage
+      localStorage.setItem('token', token);
+    
+      
+     
 
       const userName = response.data.user.name;  // Extract the username from response
 
@@ -24,9 +31,7 @@ const SignIn = ({ onSignIn }) => {  // Add onSignIn prop
       // Show success alert
       alert("Sign in successful!");
 
-      // Optionally handle token storage
-      // localStorage.setItem('token', response.data.token);
-
+     
       // Update the parent component with user data
       onSignIn({ name: userName });
 

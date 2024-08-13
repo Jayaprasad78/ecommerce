@@ -24,9 +24,12 @@ function Navbar({ onSearch, isAuthenticated, userName }) {
         }
     };
 
-    // Handle navigation to Sign-In and Sign-Up pages
     const handleNavigation = (path) => {
         navigate(path);
+    };
+
+    const handleCartNavigation = () => {
+        navigate('/cart');
     };
 
     return (
@@ -80,13 +83,13 @@ function Navbar({ onSearch, isAuthenticated, userName }) {
             </div>
 
             <div className='cart_userprofile'>
-                <div className='shoping_cart'>
+                <div className='shoping_cart' onClick={handleCartNavigation}>
                     <img src={cart} alt="Cart" />
-                    <span>cart</span>
+                    <span>Cart</span>
                 </div>
                 <div className='user_profile'>
                     <img src={profile} alt="Profile" />
-                    <span>{isAuthenticated ? userName : 'profile'}</span>
+                    <span>{isAuthenticated ? userName : 'Profile'}</span>
                 </div>
             </div>
         </div>
