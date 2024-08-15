@@ -7,8 +7,13 @@ import seller from '../../assets/image/seller.png';
 import cart from '../../assets/image/cart.png';
 import profile from '../../assets/image/user.png';
 
+import Alert from '../Alert/alert'
+
 function Navbar({ onSearch, isAuthenticated, userName }) {
     const [searchQuery, setSearchQuery] = useState('');
+    const [isDropdownVisible, setIsDropdownVisible] = useState(false);
+    const [showAlert, setShowAlert] = useState(false);
+
     console.log(searchQuery)
     const navigate = useNavigate();
 
@@ -27,6 +32,30 @@ function Navbar({ onSearch, isAuthenticated, userName }) {
         navigate('/'); // Navigate to the home page
         setSearchQuery(''); // Clear search query on home page navigation
     };
+
+    const handleLogout = () => {
+       
+       
+        console.log('Token before logout:', localStorage.getItem('token'));
+
+    // Clear the token from localStorage
+    localStorage.removeItem('token');
+
+
+    // Check the token value after removing
+       console.log('Token after logout:', localStorage.getItem('token'));
+        // Show the alert
+        setShowAlert(true);
+        window.location.reload();
+    };
+
+    const handleCloseAlert = (navigateTo) => {
+        // Close the alert and navigate to the specified page
+        setShowAlert(false);
+        navigate('/');
+    };
+
+    
 
     return (
         <div className={`navbar ${isAuthenticated ? 'signed-in' : ''}`}>
@@ -83,10 +112,22 @@ function Navbar({ onSearch, isAuthenticated, userName }) {
                     <img src={cart} alt="Cart" />
                     <span>Cart</span>
                 </div>
-                <div className='user_profile' onClick={() => navigate('/profile')}>
-                    <img src={profile} alt="Profile" />
-                    <span>{isAuthenticated ? userName : 'Profile'}</span>
+                <div className='user_profile'>
+            <img src={profile} alt="Profile" />
+            <span>{isAuthenticated ? userName : 'Profile'}</span>
+            {isAuthenticated && (
+                <div className="logout-button">
+                    <button onClick={handleLogout}>Log Out</button>
                 </div>
+            )}
+            {showAlert && (
+                <Alert
+                    message="You have been logged out successfully."
+                    navigateTo="/"
+                    onClose={handleCloseAlert}
+                />
+            )}
+        </div>
             </div>
         </div>
     );
