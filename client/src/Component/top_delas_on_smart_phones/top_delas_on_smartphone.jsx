@@ -1,20 +1,21 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import { topProducts } from './../../Products/Products'; // Import your products array
+import { top_delas_on_smart_phones } from './../../Products/Products'; // Import your products array
 import { useCart } from './../../context/CartContext'; // Adjust the path
-import './top_products.css';
+import './top_deals_smartphone.css';
 
-const TopProducts_page = ({ searchQuery, isAuthenticated }) => {
+const Top_delas_on_smart_phones_page = ({ searchQuery, isAuthenticated }) => {
   const [quantities, setQuantities] = useState({});
   const { addToCart } = useCart();
   const navigate = useNavigate();
 
-  const filteredProducts = topProducts.filter(product => {
-    const productName = product.name.toLowerCase();
-    const query = searchQuery.toLowerCase();
+  const filteredProducts = top_delas_on_smart_phones .filter(product => {
+    const productName = product.name ? product.name.toLowerCase() : '';
+    const query = searchQuery ? searchQuery.toLowerCase() : '';
     return productName.includes(query);
   });
+  
 
   const increaseQuantity = (productId) => {
     setQuantities(prevQuantities => ({
@@ -33,7 +34,6 @@ const TopProducts_page = ({ searchQuery, isAuthenticated }) => {
   const handleAddToCart = async (product) => {
     if (!isAuthenticated) {
       alert('Please sign in first before adding items to the cart.');
-      
       return;
     }
 
@@ -63,7 +63,7 @@ const TopProducts_page = ({ searchQuery, isAuthenticated }) => {
   return (
     <div className="top-products-page">
       <div className="top-products-card">
-        <h1 className="heading">Top products</h1>
+        <h1 className="heading">Top Deals on Smart Phones</h1>
         <div className="top-products">
           {filteredProducts.length > 0 ? (
             filteredProducts.map((product) => (
@@ -88,4 +88,4 @@ const TopProducts_page = ({ searchQuery, isAuthenticated }) => {
   );
 };
 
-export default TopProducts_page;
+export default Top_delas_on_smart_phones_page;

@@ -1,28 +1,28 @@
 .carousel {
     position: relative;
-    width: 300%; /* Keeps it responsive */
-    max-width: 1250px; /* Increase max-width to 1000px */
+    width: 100%; /* Keeps it responsive */
+    max-width: 1250px; /* Limits the carousel's width */
     margin: auto;
     overflow: hidden;
-   
     height: 300px;
     margin-top: 20px;
-}
-
-.carousel-container {
+  }
+  
+  .carousel-container {
     display: flex;
     position: relative;
-}
-
-.carousel-slide {
-    width: 100%;
+    transition: transform 0.5s ease-in-out; /* Smooth transition between slides */
+  }
+  
+  .carousel-slide {
+    min-width: 100%; /* Takes up full width of the container */
     height: 300px;
     background-size: cover;
     background-position: center;
-}
-
-.left-arrow,
-.right-arrow {
+  }
+  
+  .left-arrow,
+  .right-arrow {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -33,34 +33,35 @@
     padding: 10px;
     cursor: pointer;
     z-index: 2;
-}
-
-.left-arrow {
+  }
+  
+  .left-arrow {
     left: 10px;
-}
-
-.right-arrow {
+  }
+  
+  .right-arrow {
     right: 10px;
-}
-
-.carousel-indicators {
+  }
+  
+  .carousel-indicators {
     display: flex;
     justify-content: center;
     position: absolute;
     bottom: 10px;
     width: 100%;
-}
-
-.carousel-indicators button {
+  }
+  
+  .carousel-indicators button {
     background-color: rgba(0, 0, 0, 0.5);
     border: none;
-    width: 10px;
-    height: 10px;
+    width: 15px;
+    height: 15px;
     margin: 0 5px;
-    border-radius: 50%;
+    border-radius: 15%;
     cursor: pointer;
-}
-
-.carousel-indicators button.active {
-    background-color: white;
-}
+  }
+  
+  .carousel-indicators button.active {
+    background-color: rgb(207, 39, 39);
+  }
+  

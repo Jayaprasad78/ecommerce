@@ -2,16 +2,19 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './Cart.css';
+import Alert from '../Alert/alert';
 
 const Cart = ({ isAuthenticated }) => {
   const [cartItems, setCartItems] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [showAlert, setShowAlert] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
     if (!isAuthenticated) {
-      navigate('/signin');
+      setShowAlert(true); // Show the alert if the user is not authenticated
+      setLoading(false);
       return;
     }
 
@@ -24,7 +27,6 @@ const Cart = ({ isAuthenticated }) => {
           },
         });
 
-        // Set the cart items to the state
         setCartItems(response.data.cart);
         setLoading(false);
       } catch (error) {
@@ -34,7 +36,7 @@ const Cart = ({ isAuthenticated }) => {
     };
 
     fetchCartItems();
-  }, [isAuthenticated, navigate]);
+  }, [isAuthenticated]);
 
   const handleRemoveItem = async (itemId) => {
     try {
@@ -45,22 +47,36 @@ const Cart = ({ isAuthenticated }) => {
         },
       });
 
-      // Remove the item from the local state
       setCartItems((prevItems) => prevItems.filter((item) => item._id !== itemId));
     } catch (error) {
       setError(error.response ? error.response.data : error.message);
     }
   };
+
   const handleCheckout = () => {
     navigate('/checkout');
   };
 
+  // Handle redirection to a specific page after alert is closed
+  const handleAlertClose = (pageToNavigate) => {
+    navigate(pageToNavigate); // Navigate to the provided page
+  };
+
+  if (!isAuthenticated && showAlert) {
+    return (
+      <Alert 
+        message="Please sign in to view your cart items!" 
+        navigateTo="/" 
+        onClose={handleAlertClose} 
+      />
+    );
+  }
+
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error}</p>;
 
-  // Calculate total amount
   const totalAmount = cartItems.reduce((total, item) => {
-    const price = parseFloat(item.price.replace('₹', '')); // Remove dollar sign if present and convert to number
+    const price = parseFloat(item.price.replace('₹', ''));
     return total + price * item.quantity;
   }, 0);
 

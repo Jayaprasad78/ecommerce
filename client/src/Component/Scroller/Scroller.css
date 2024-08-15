@@ -9,10 +9,10 @@
 /* Wrapper for the content to be scrolled */
 .scroll-wrapper {
     display: flex; /* Align items in a row */
-    position: absolute;
+   position: absolute; 
     height: 100%; /* Ensure wrapper takes full height of container */
     white-space: nowrap; /* Prevent wrapping */
-    animation: scroll-left 20s linear infinite; /* Apply animation */
+    animation: scroll-left 10s linear infinite; /* Apply animation */
 }
 
 /* Style for each item */
@@ -20,21 +20,29 @@
     display: flex; /* Align image and text vertically */
     flex-direction: column; /* Stack image and text vertically */
     align-items: center; /* Center items horizontally */
-    padding: 0 10px; /* Space between items */
+    padding: 25px;;
+   
 }
 
 /* Style for each image */
 .scroll-wrapper img {
     height: 60px; /* Set height */
     width: 60px; /* Set width */
-    padding: 5px;
+    padding: 20px;
     margin-bottom: 5px; /* Space between image and text */
 }
 
+
 /* Style for each label */
-.scroll-wrapper span {
-    font-size: 12px; /* Adjust font size */
+.scroll-container .scroll-wrapper span {
+    position: absolute;
+    font-size: 15px; /* Adjust font size */
     text-align: center; /* Center align text */
+    margin-top: 80px;
+    margin-left: -83px;
+    
+
+    
 }
 
 /* Define the animation */

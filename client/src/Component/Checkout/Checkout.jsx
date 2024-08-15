@@ -1,43 +1,34 @@
-
-// src/components/Checkout.js
 import React, { useState } from 'react';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './Checkout.css';
-import { Navigate,useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const Checkout = () => {
     const [address, setAddress] = useState('');
-    const [paymentMethod, setPaymentMethod] = useState('');
+    const [paymentMethod] = useState('Cash'); // Only Cash on Delivery
     const [email, setEmail] = useState('');
     const [isSubmitting, setIsSubmitting] = useState(false);
 
     const navigate = useNavigate();
 
-
     const handleSubmit = (e) => {
         e.preventDefault();
         setIsSubmitting(true);
-    
+
         // Simulate API call
         setTimeout(() => {
-            // Mock success response
-            toast.success('Order placed successfully! Mail sent to your email.');
-    
-            // Reset form fields
+            toast.success('Order placed successfully! A confirmation email has been sent.');
             setAddress('');
-            setPaymentMethod('');
             setEmail('');
-    
-            // Navigate to home page after a short delay to ensure toast is visible
+
             setTimeout(() => {
                 navigate('/');
-            }, 2000); // Adjust the delay to match the toast duration
-    
+            }, 2000);
+
             setIsSubmitting(false);
-        }, 1000); // Simulate network delay
+        }, 1000);
     };
-    
 
     return (
         <div className="checkout-container">
@@ -49,43 +40,22 @@ const Checkout = () => {
                         id="address"
                         value={address}
                         onChange={(e) => setAddress(e.target.value)}
+                        placeholder="Enter your delivery address here"
                         required
                     />
                 </div>
                 <div className="form-group">
                     <label>Payment Method:</label>
-                    <div>
+                    <div className="payment-method">
                         <input
                             type="radio"
                             id="cash"
                             name="paymentMethod"
                             value="Cash"
-                            checked={paymentMethod === 'Cash'}
-                            onChange={(e) => setPaymentMethod(e.target.value)}
+                            checked
+                            readOnly
                         />
-                        <label htmlFor="cash">Cash</label>
-                    </div>
-                    <div>
-                        <input
-                            type="radio"
-                            id="upi"
-                            name="paymentMethod"
-                            value="UPI"
-                            checked={paymentMethod === 'UPI'}
-                            onChange={(e) => setPaymentMethod(e.target.value)}
-                        />
-                        <label htmlFor="upi">UPI</label>
-                    </div>
-                    <div>
-                        <input
-                            type="radio"
-                            id="credit-card"
-                            name="paymentMethod"
-                            value="Credit Card"
-                            checked={paymentMethod === 'Credit Card'}
-                            onChange={(e) => setPaymentMethod(e.target.value)}
-                        />
-                        <label htmlFor="credit-card">Credit Card</label>
+                        <label htmlFor="cash">Cash on Delivery</label>
                     </div>
                 </div>
                 <div className="form-group">
@@ -95,10 +65,11 @@ const Checkout = () => {
                         id="email"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
+                        placeholder="Enter your email"
                         required
                     />
                 </div>
-                <button type="submit" disabled={isSubmitting}>
+                <button type="submit" disabled={isSubmitting} className="submit-button">
                     {isSubmitting ? 'Submitting...' : 'Place Order'}
                 </button>
             </form>

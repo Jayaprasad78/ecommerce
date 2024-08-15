@@ -9,33 +9,29 @@ import profile from '../../assets/image/user.png';
 
 function Navbar({ onSearch, isAuthenticated, userName }) {
     const [searchQuery, setSearchQuery] = useState('');
+    console.log(searchQuery)
     const navigate = useNavigate();
 
     const handleSearch = (e) => {
         e.preventDefault();
-        onSearch(searchQuery);
-
-        if (searchQuery.toLowerCase().includes('electronics')) {
-            navigate('/electronics');
-        } else if (searchQuery.toLowerCase().includes('beauty')) {
-            navigate('/beauty');
+        if (searchQuery.trim()) {
+            onSearch(searchQuery); // Update the search query state in App
+            navigate('/searched-products'); // Redirect to the searched products page
         } else {
-            navigate('/');
+            
+            navigate('/'); // Redirect to the home page if search query is empty
         }
     };
 
-    const handleNavigation = (path) => {
-        navigate(path);
-    };
-
-    const handleCartNavigation = () => {
-        navigate('/cart');
+    const handleNavigateHome = () => {
+        navigate('/'); // Navigate to the home page
+        setSearchQuery(''); // Clear search query on home page navigation
     };
 
     return (
         <div className={`navbar ${isAuthenticated ? 'signed-in' : ''}`}>
             <div className='logo'>
-                <div className='image-container'>
+                <div className='image-container' onClick={handleNavigateHome}>
                     <img className='logo-img' src={logo} alt="MarketRush Logo" />
                 </div>
                 <div className='text-container'>
@@ -49,7 +45,7 @@ function Navbar({ onSearch, isAuthenticated, userName }) {
                     placeholder="Search for products and items"
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
-                    onKeyDown={(e) => e.key === 'Enter' && handleSearch(e)}
+                    onKeyDown={(e) => e.key === 'Enter' && handleSearch(e)} // Trigger search on Enter
                 />
                 <i className="fa fa-search" onClick={handleSearch}></i>
             </div>
@@ -69,10 +65,10 @@ function Navbar({ onSearch, isAuthenticated, userName }) {
                 {!isAuthenticated ? (
                     <>
                         <div className='button2'>
-                            <button onClick={() => handleNavigation('/signin')}>Signin</button>
+                            <button onClick={() => navigate('/signin')}>Signin</button>
                         </div>
                         <div className='button3'>
-                            <button onClick={() => handleNavigation('/signup')}>Signup</button>
+                            <button onClick={() => navigate('/signup')}>Signup</button>
                         </div>
                     </>
                 ) : (
@@ -83,11 +79,11 @@ function Navbar({ onSearch, isAuthenticated, userName }) {
             </div>
 
             <div className='cart_userprofile'>
-                <div className='shoping_cart' onClick={handleCartNavigation}>
+                <div className='shoping_cart' onClick={() => navigate('/cart')}>
                     <img src={cart} alt="Cart" />
                     <span>Cart</span>
                 </div>
-                <div className='user_profile'>
+                <div className='user_profile' onClick={() => navigate('/profile')}>
                     <img src={profile} alt="Profile" />
                     <span>{isAuthenticated ? userName : 'Profile'}</span>
                 </div>

@@ -1,18 +1,22 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios'; // Import axios
-import { electronicsProducts } from './../../Products/Products'; // Adjust the path
-import { useCart } from './../../context/CartContext'; // Adjust the path
+import axios from 'axios';
+import { electronicsProducts } from './../../Products/Products'; // Import your products array
 import './electronics.css';
+import Message from '../../Component/addcartmessage/addcartmsg'; // Import the Message component
 
 const Electronics_page = ({ searchQuery, isAuthenticated }) => {
+  console.log("this is serach query",searchQuery)
   const [quantities, setQuantities] = useState({});
-  const { addToCart } = useCart(); // Destructure addToCart from context
+  const [showMessage, setShowMessage] = useState(false);
+
   const navigate = useNavigate();
 
-  const filteredProducts = electronicsProducts.filter(product =>
-    product.name.toLowerCase().includes(searchQuery.toLowerCase())
-  );
+  const filteredProducts = electronicsProducts.filter(product => {
+    const productName = product.name.toLowerCase();
+    const query = searchQuery.toLowerCase();
+    return productName.includes(query);
+  });
 
   const increaseQuantity = (productId) => {
     setQuantities(prevQuantities => ({
@@ -29,65 +33,60 @@ const Electronics_page = ({ searchQuery, isAuthenticated }) => {
   };
 
   const handleAddToCart = async (product) => {
-   
     if (!isAuthenticated) {
-      alert("Please sign in before adding items to the cart.");
-      navigate('/signin'); // Redirect to sign-in page if not authenticated
-    } else {
-      const quantity = quantities[product.id] || 1;
-      const cartItem = {
-        productName: product.name,
-        price: product.price,
-        image: product.image,
-        quantity: quantity
-      };
+      alert('Please sign in first before adding items to the cart.');
+      return;
+    }
 
+    const quantity = quantities[product.id] || 1;
+    const cartItem = {
+      productName: product.name,
+      price: product.price,
+      image: product.image,
+      quantity: quantity
+    };
 
-      console.log("hi",cartItem)
-      const token = localStorage.getItem('token');
-      console.log("hi this is token",token)
+    const token = localStorage.getItem('token');
 
-
-      try {
-        const response = await axios.post('http://localhost:5000/api/cart/additem', cartItem, {
-          headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${token}` // Include the JWT token
-          }
-        });
-
-
-        console.log('Cart updated:', response.data);
-        // Optionally, update the context or state if needed
-        // addToCart(product, quantity); // If needed to reflect in the UI immediately
-      } catch (error) {
-        console.error('Error adding to cart:', error.response ? error.response.data : error.message);
-      }
+    try {
+      const response = await axios.post('http://localhost:5000/api/cart/additem', cartItem, {
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
+        }
+      });
+      console.log('Cart updated:', response.data);
+      setShowMessage(true); // Show the success message
+      setTimeout(() => setShowMessage(false), 3000); // Hide message after 3 seconds
+    } catch (error) {
+      console.error('Error adding to cart:', error.response ? error.response.data : error.message);
     }
   };
 
   return (
-    <div className="top-products-container">
-      <h1 className="heading">Electronics Products</h1>
-      <div className="top-products">
-        {filteredProducts.length > 0 ? (
-          filteredProducts.map((product) => (
-            <div key={product.id} className="product">
-              <img src={product.image} alt={product.name} className="product-image" />
-              <h3 className="product-name">{product.name}</h3>
-              <p className="product-price">₹{product.price}</p>
-              <div className="quantity-selector">
-                <button className="quantity-button" onClick={() => decreaseQuantity(product.id)}>-</button>
-                <span className="quantity">{quantities[product.id] || 1}</span>
-                <button className="quantity-button" onClick={() => increaseQuantity(product.id)}>+</button>
+    <div className="top-products-page">
+      <div className="top-products-card">
+        <h1 className="heading">Electronics Items</h1>
+        <div className="top-products">
+          {filteredProducts.length > 0 ? (
+            filteredProducts.map((product) => (
+              <div key={product.id} className="product-card">
+                <img src={product.image} alt={product.name} className="product-image" />
+                <h3 className="product-name">{product.name}</h3>
+                <p className="product-price">₹{product.price}</p>
+                <div className="quantity-selector">
+                  <button className="quantity-button" onClick={() => decreaseQuantity(product.id)}>-</button>
+                  <span className="quantity">{quantities[product.id] || 1}</span>
+                  <button className="quantity-button" onClick={() => increaseQuantity(product.id)}>+</button>
+                </div>
+                <button className="add-to-cart-button" onClick={() => handleAddToCart(product)}>Add to Cart</button>
               </div>
-              {console.log(product)}
-              <button className="add-to-cart-button" onClick={() => handleAddToCart(product)}>Add to Cart</button>
-            </div>
-          ))
-        ) : (
-          <p>No products found</p>
-        )}
+            ))
+          ) : (
+            <p>No products found</p>
+          )}
+        </div>
+        {showMessage && <Message />} {/* Display message when showMessage is true */}
       </div>
     </div>
   );

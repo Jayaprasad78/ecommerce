@@ -1,16 +1,165 @@
 // Define and export electronics products
-const electronicsProducts = [
+
+
+const topProducts = [
   {
     id: 1,
-    name: 'Electronics1',
-    price: '1500',
-    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQvg-aZreXB84S6bVcUWsLIPQkaH39sB_xDSg&s',
+    name: 'Small Cabin Suitcase (55 cm)',
+    price: '1399',
+    image: 'https://rukminim2.flixcart.com/image/612/612/xif0q/suitcase/r/f/c/-original-imagypsrkjhy6kbt.jpeg?q=70',
   },
   {
     id: 2,
-    name: 'Electronics2',
-    price: '2000',
-    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1PMJKS9sbGqi8X45YjLZxJwh7-qNCZxoXqg&s',
+    name: 'realme P1 5G (Phoenix Red, 128 GB)  (6 GB RAM)',
+    price: '25000',
+    image: 'https://rukminim2.flixcart.com/image/312/312/xif0q/mobile/y/9/0/-original-imahyuhfg2z4fvyh.jpeg?q=70',
+  },
+  {
+    id: 3,
+    name: 'SM 648 Running Shoes For Men',
+    price: '769',
+    image: 'https://rukminim2.flixcart.com/image/612/612/xif0q/shoe/x/0/m/-original-imagg6rfhcvty2f7.jpeg?q=70',
+  },
+  {
+    id: 4,
+    name: ' AVANTIKA FASHION Woven Banarasi Pure Silk',
+    price: '₹1,299',
+    image: 'https://rukminim2.flixcart.com/image/612/612/xif0q/sari/p/h/t/free-kanjivaram-avantika-fashion-unstitched-original-imahynw8jazbaq7a.jpeg?q=70',
+  },
+  {
+    id: 5,
+    name: 'Alloy Gold-plated Multicolor Jewel Set',
+    price: '1600',
+    image: 'https://rukminim2.flixcart.com/image/612/612/xif0q/jewellery-set/u/l/p/na-na-4-ns105718-suk-4-sukkhi-original-imahf6qecvgtffgy.jpeg?q=70',
+  },
+  {
+    id: 6,
+    name: 'Insta360 Ace Pro Sports and Action Camera',
+    price: '42,290',
+    image: 'https://rukminim2.flixcart.com/image/612/612/xif0q/sports-action-camera/t/n/r/ace-pro-na-2-4-48-cinsaaja-insta360-original-imagvghzder234bd.jpeg?q=70',
+  },
+  {
+    id: 7,
+    name: 'OnePlus Nord Buds 2',
+    price: '2398',
+    image: 'https://rukminim2.flixcart.com/image/612/612/xif0q/headphone/w/t/q/-original-imagr4t8zuq2wzhe.jpeg?q=70',
+  },
+  {
+    id: 8,
+    name: 'Glass Manual Gas Stove  (2 Burners)',
+    price: '2100',
+    image: 'https://rukminim2.flixcart.com/image/612/612/xif0q/gas-stove/a/d/5/2-4-svp02-suryaviva-53-manual-original-imahyhgzhfp8w7ps.jpeg?q=70',
+  },
+
+ 
+  // Add more top products
+];
+
+
+const top_delas_on_smart_phones = [
+  {
+    id: 1,
+    name: 'POCO M6 5G ',
+    price: '8,249',
+    image: 'https://rukminim2.flixcart.com/image/312/312/xif0q/mobile/d/i/7/-original-imagys8jfmstgyug.jpeg?q=70',
+  },
+  {
+    id: 2,
+    name: 'Apple iphone 15',
+    price: '69,999',
+    image: 'https://rukminim2.flixcart.com/image/312/312/xif0q/mobile/k/l/l/-original-imagtc5fz9spysyk.jpeg?q=70',
+  },
+  {
+    id: 3,
+    name: 'Google Pixel 7a',
+    price: '35,999',
+    image: 'https://rukminim2.flixcart.com/image/312/312/xif0q/mobile/i/a/r/-original-imagtrf9qm3dufq9.jpeg?q=70',
+  },
+  {
+    id: 4,
+    name: 'Motorola g64 5G',
+    price: '₹15,999',
+    image: 'https://rukminim2.flixcart.com/image/312/312/xif0q/mobile/c/q/b/g64-5g-pb2e0006in-motorola-original-imagzzd4nmrgsevr.jpeg?q=70',
+  },
+  {
+    id: 5,
+    name: 'Xiaomi 14 CIVI',
+    price: '48,999',
+    image: 'https://rukminim2.flixcart.com/image/312/312/xif0q/mobile/s/r/m/-original-imah34gxy5562pgz.jpeg?q=70',
+  },
+  {
+    id: 6,
+    name: 'realme 12x 5G',
+    price: '11,999',
+    image: 'https://rukminim2.flixcart.com/image/312/312/xif0q/mobile/w/c/3/-original-imah3chxfqnezjjb.jpeg?q=70',
+  },
+  {
+    id: 7,
+    name: 'Infix HOT 40i',
+    price: '8,999',
+    image: 'https://rukminim2.flixcart.com/image/312/312/xif0q/mobile/w/s/d/-original-imagxtngwgcfwvy5.jpeg?q=70',
+  },
+  {
+    id: 8,
+    name: 'SAMSUNG Galaxy S23',
+    price: '51,999',
+    image: 'https://rukminim2.flixcart.com/image/312/312/xif0q/mobile/g/r/b/-original-imagzm8q5gtgycxu.jpeg?q=70',
+  },
+
+ 
+  // Add more top products
+];
+
+
+
+const electronicsProducts = [
+  {
+    id: 1,
+    name: 'Pureit by HUL Wave Plus',
+    price: '6499',
+    image: 'https://rukminim2.flixcart.com/image/612/612/xif0q/water-purifier/c/u/m/wave-plus-pureit-original-imahymzdrjemzwsz.jpeg?q=70',
+  },
+  {
+    id: 2,
+    name: 'Aqua Fresh EPICAQUA',
+    price: '3999',
+    image: 'https://rukminim2.flixcart.com/image/612/612/xif0q/water-purifier/l/q/p/-original-imagzm4fdtuuqncm.jpeg?q=70',
+  },
+  {
+    id: 3,
+    name: 'Nova Plus Amaze NI 10 1100 W Dry Iron',
+    price: '399',
+    image: 'https://rukminim2.flixcart.com/image/612/612/xif0q/iron/z/u/0/amaze-ni-10-nova-plus-original-imahf2jss3my8nsp.jpeg?q=70',
+  },
+  {
+    id: 4,
+    name: 'HAVELLS HD2222 Hair Dryer',
+    price: '699',
+    image: 'https://rukminim2.flixcart.com/image/612/612/xif0q/hair-dryer/a/h/d/-original-imaggshxzrgnh76r.jpeg?q=70',
+  },
+  {
+    id: 5,
+    name: 'Airtel DTH Remote',
+    price: '216',
+    image: 'https://rukminim2.flixcart.com/image/612/612/kkh6zrk0/presentation-remote/o/b/b/airtel-digital-tv-dth-remote-with-recording-option-suitable-for-original-imafzt8dj5pzkfya.jpeg?q=70',
+  },
+  {
+    id: 6,
+    name: 'MILTON Insta Electric Kettle',
+    price: '799',
+    image: 'https://rukminim2.flixcart.com/image/612/612/knj7wcw0/electric-kettle/g/u/k/insta-electric-kettle-2000-insta-electric-kettle-2000-milton-original-imag26y6qu4tekzk.jpeg?q=70',
+  },
+  {
+    id: 7,
+    name: 'Frost Free Side by Side Refrigerator ',
+    price: '1,14,399',
+    image: 'https://rukminim2.flixcart.com/image/612/612/xif0q/refrigerator-new/z/k/j/-original-imagg4ggknxfag9b.jpeg?q=70',
+  },
+  {
+    id: 8,
+    name: 'SONY Bravia X74L 163.9 cm ',
+    price: '74990',
+    image: 'https://rukminim2.flixcart.com/image/612/612/xif0q/television/j/p/d/-original-imagw7yhmbhzhcnp.jpeg?q=70',
   },
   // Add more electronics products
 ];
@@ -36,16 +185,53 @@ const beautyProducts = [
 const fashionProducts = [
   {
     id: 1,
-    name: 'Fashion1',
-    price: '$59.99',
-    image: 'https://example.com/fashion1.jpg',
+    name: 'Men Slim Mid Rise Black Jeans',
+    price: '657',
+    image: 'https://rukminim2.flixcart.com/image/612/612/xif0q/jean/8/v/f/32-eps-black-03-urbano-fashion-original-imah22ffbz2v4uht.jpeg?q=70',
   },
   {
     id: 2,
-    name: 'Fashion2',
-    price: '$79.99',
-    image: 'https://example.com/fashion2.jpg',
+    name: 'Men Printed Round Neck Pure Cotton Black T-Shirt',
+    price: '289',
+    image: 'https://rukminim2.flixcart.com/image/612/612/xif0q/t-shirt/p/a/d/s-1244-sarte-fashion-original-imah2qfucve2dh6r.jpeg?q=70',
   },
+  {
+    id: 3,
+    name: 'Men Regular Fit Checkered Slim Collar Casual Shirt',
+    price: '366',
+    image: 'https://rukminim2.flixcart.com/image/612/612/xif0q/shirt/u/8/p/m-capkin-collections-clinch-fashion-original-imah3gyduhm5hceb.jpeg?q=70',
+  },
+  {
+    id: 4,
+    name: 'Pure Cotton Black T-Shirt',
+    price: '269',
+    image: 'https://rukminim2.flixcart.com/image/612/612/l1grgcw0/t-shirt/z/2/d/xl-indian-flag-hf16-b-teewink-original-imagdfab4hnqxz7q.jpeg?q=70',
+  },
+  {
+    id: 5,
+    name: 'Woven Banarasi Pure Silk, Satin Saree  (Red)',
+    price: '699',
+    image: 'https://rukminim2.flixcart.com/image/612/612/xif0q/sari/n/c/p/-original-imagvz7mc4uxtwgv.jpeg?q=70',
+  },
+  {
+    id: 6,
+    name: 'Woven Kanjivaram Pure Silk',
+    price: '999',
+    image: 'https://rukminim2.flixcart.com/image/612/612/xif0q/sari/r/7/o/free-banarasi-handloom-golden-work-light-weight-stone-original-imah2v6hjefxnk8d.jpeg?q=70',
+  },
+  {
+    id: 7,
+    name: 'Men Jogger Fit Mid Rise Black Jeans',
+    price: '599',
+    image: 'https://rukminim2.flixcart.com/image/612/612/xif0q/jean/s/y/4/32-01-jaar-jean-loose-blk-jaar-fashion-original-imahymr23jdrqjk9.jpeg?q=70',
+  },
+  {
+    id: 8,
+    name: 'Men Printed Round Neck Cotton Blend Black, Yellow, Blue T-Shirt',
+    price: '349',
+    image: 'https://rukminim2.flixcart.com/image/612/612/xif0q/t-shirt/z/w/z/m-jc23-rn-hs-olive-wht-charleston-jump-cuts-original-imagyubecz7gu6sb.jpeg?q=70',
+  },
+ 
   // Add more fashion products
 ];
 
@@ -165,6 +351,12 @@ const giftProducts = [
     price: '$29.99',
     image: 'https://example.com/gift2.jpg',
   },
+  {
+    id: 2,
+    name: 'Gift3',
+    price: '$29.99',
+    image: 'https://example.com/gift2.jpg',
+  },
   // Add more gift products
 ];
 
@@ -187,6 +379,8 @@ const luggageProducts = [
 
 // Export all product arrays
 export {
+  topProducts,
+  top_delas_on_smart_phones ,
   electronicsProducts,
   beautyProducts,
   fashionProducts,
@@ -197,5 +391,6 @@ export {
   kitchenProducts,
   petSupplyProducts,
   giftProducts,
-  luggageProducts,
+  luggageProducts
+  
 };

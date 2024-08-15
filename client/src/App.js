@@ -1,40 +1,34 @@
-import React, { useState } from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import { CartProvider } from './context/CartContext'; // Adjust path if needed
+import React, { useState, useEffect } from 'react';
+import { Route, Routes, useLocation } from 'react-router-dom';
+import { CartProvider } from './context/CartContext';
+import SearchedProductsPage from './Component/serched_products/searched_products';
 import Navbar from './Component/Navbar/Navbar';
 import Scroller from './Component/Scroller/Scroller';
 import Carousel from './Component/Carousel/Carousel';
-import TopProducts from './Component/top Products/top_products';
-import TopSmartPhones from './Component/top_delas_on_smart_phones/top_products';
-import TopBrands from './Component/Featured Brands/top_products';
+import TopProducts_page from './Component/top Products/top_products';
+import Top_delas_on_smart_phones_page from './Component/top_delas_on_smart_phones/top_delas_on_smartphone';
 import Footer from './Component/Footer/Fotter';
 import Electronics_page from './pages/electronics_page/electronics';
-import Automotive_page from './pages/automotive_page/automotive';
-import Beauty_page from './pages/beauty_page/beauty';
 import Fashion_page from './pages/fashion_page/fashion';
-import Gifts_page from './pages/gifts_page/gifts';
-import Health_page from './pages/health_page/health';
-import Kitchen_page from './pages/kitchen_page/kitchen';
-import Luggage_page from './pages/lugaagage_page/lugaagage';
-import Makeup_page from './pages/makeup_page/makeup';
-import Petsupply_page from './pages/petsupply_page/petsupply';
-import Sports_page from './pages/sports_page/sports';
-import Stationary_page from './pages/stationary_page/stationary';
 import SignIn from './user_login_register/Signin/Signin';
 import SignUp from './user_login_register/Signup/Signup';
-import Cart from './Component/Cart/Cart'; // Import Cart
+import Cart from './Component/Cart/Cart';
 import Checkout from './Component/Checkout/Checkout';
-
-import electronics from './assets/image/electronics.png';
-import fashion from './assets/image/fashion.png';
-import sports from './assets/image/sports.png';
-import automotive from './assets/image/automotive.png';
-import stationary from './assets/image/stationary.png';
+import banner1 from './assets/image/banner1.jpeg';
+import banner2 from './assets/image/banner2.jpg';
+import banner3 from './assets/image/banner3.png';
+import { 
+  topProducts,
+  top_delas_on_smart_phones,
+  electronicsProducts,
+  fashionProducts
+} from './Products/Products';
 
 function App() {
   const [searchQuery, setSearchQuery] = useState('');
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [userName, setUserName] = useState('');
+  const location = useLocation();
 
   const handleSignIn = (user) => {
     setIsAuthenticated(true);
@@ -45,47 +39,44 @@ function App() {
     setSearchQuery(query);
   };
 
-  const images = [electronics, fashion, sports, automotive, stationary];
+  useEffect(() => {
+    if (location.pathname === '/') {
+      setSearchQuery('');
+    }
+  }, [location.pathname]);
+
+  const allProducts = [
+    ...topProducts,
+    ...top_delas_on_smart_phones,
+    ...electronicsProducts,
+    ...fashionProducts
+  ];
+  
+  const images = [banner1, banner2, banner3];
 
   return (
     <CartProvider>
-      <Router>
-        <div className="App">
-          <Navbar onSearch={handleSearch} isAuthenticated={isAuthenticated} userName={userName} />
-          <Routes>
-            <Route
-              path="/"
-              element={
-                <>
-                  <Scroller />
-                  <Carousel images={images} />
-                  <TopProducts />
-                  <TopSmartPhones />
-                  <TopBrands />
-                </>
-              }
-            />
-            <Route path="/electronics" element={<Electronics_page searchQuery={searchQuery} isAuthenticated={isAuthenticated} />} />
-            <Route path="/automotive" element={<Automotive_page />} />
-            <Route path="/beauty" element={<Beauty_page searchQuery={searchQuery} />} />
-            <Route path="/fashion" element={<Fashion_page />} />
-            <Route path="/gifts" element={<Gifts_page />} />
-            <Route path="/health" element={<Health_page />} />
-            <Route path="/kitchen" element={<Kitchen_page />} />
-            <Route path="/luggage" element={<Luggage_page />} />
-            <Route path="/makeup" element={<Makeup_page />} />
-            <Route path="/petsupply" element={<Petsupply_page />} />
-            <Route path="/sports" element={<Sports_page />} />
-            <Route path="/stationary" element={<Stationary_page />} />
-            <Route path="/signin" element={<SignIn onSignIn={handleSignIn} />} />
-            <Route path="/signup" element={<SignUp />} />
-
-            <Route path="/cart" element={<Cart isAuthenticated={isAuthenticated} />} />
-            <Route path="/checkout" element={< Checkout />} />
-          </Routes>
-          <Footer />
-        </div>
-      </Router>
+      <div className="App">
+        <Navbar onSearch={handleSearch} isAuthenticated={isAuthenticated} userName={userName} />
+        <Routes>
+          <Route path="/" element={
+            <>
+              <Scroller />
+              <Carousel images={images} />
+              <TopProducts_page searchQuery={''} isAuthenticated={isAuthenticated} />
+              <Top_delas_on_smart_phones_page />
+            </>
+          } />
+          <Route path="/searched-products" element={<SearchedProductsPage searchQuery={searchQuery} products={allProducts} isAuthenticated={isAuthenticated} />} />
+          <Route path="/electronics" element={<Electronics_page searchQuery={searchQuery} isAuthenticated={isAuthenticated} />} />
+          <Route path="/fashion" element={<Fashion_page searchQuery={searchQuery} isAuthenticated={isAuthenticated} />} />
+          <Route path="/signin" element={<SignIn onSignIn={handleSignIn} />} />
+          <Route path="/signup" element={<SignUp />} />
+          <Route path="/cart" element={<Cart isAuthenticated={isAuthenticated} />} />
+          <Route path="/checkout" element={<Checkout />} />
+        </Routes>
+        <Footer />
+      </div>
     </CartProvider>
   );
 }
