@@ -104,7 +104,9 @@ const Cart = ({ isAuthenticated }) => {
         </div>
       )}
       <p className="total-amount">Total: ₹{totalAmount.toFixed(2)}</p>
-      <button className="checkout-button" onClick={handleCheckout}>Checkout</button>
+      {cartItems.length > 0 && (
+        <button className="checkout-button" onClick={handleCheckout}>Checkout</button>
+      )}
     </div>
   );
 };

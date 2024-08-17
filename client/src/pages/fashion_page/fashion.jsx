@@ -2,11 +2,13 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { fashionProducts } from './../../Products/Products'; // Import your products array
-
 import './fashion.css';
+import Message from '../../Component/addcartmessage/addcartmsg'; // Import the Message component
 
-const Fashion_page= ({ searchQuery, isAuthenticated }) => {
+const FashionProducts_page = ({ searchQuery, isAuthenticated }) => {
+  console.log("this is serach query",searchQuery)
   const [quantities, setQuantities] = useState({});
+  const [showMessage, setShowMessage] = useState(false);
 
   const navigate = useNavigate();
 
@@ -54,6 +56,8 @@ const Fashion_page= ({ searchQuery, isAuthenticated }) => {
         }
       });
       console.log('Cart updated:', response.data);
+      setShowMessage(true); // Show the success message
+      setTimeout(() => setShowMessage(false), 3000); // Hide message after 3 seconds
     } catch (error) {
       console.error('Error adding to cart:', error.response ? error.response.data : error.message);
     }
@@ -62,7 +66,7 @@ const Fashion_page= ({ searchQuery, isAuthenticated }) => {
   return (
     <div className="top-products-page">
       <div className="top-products-card">
-        <h1 className="heading">Fashion_Item</h1>
+        <h1 className="heading">Fashion_Products</h1>
         <div className="top-products">
           {filteredProducts.length > 0 ? (
             filteredProducts.map((product) => (
@@ -82,9 +86,10 @@ const Fashion_page= ({ searchQuery, isAuthenticated }) => {
             <p>No products found</p>
           )}
         </div>
+        {showMessage && <Message />} {/* Display message when showMessage is true */}
       </div>
     </div>
   );
 };
 
-export default Fashion_page;
+export default FashionProducts_page;

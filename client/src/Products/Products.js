@@ -168,16 +168,56 @@ const electronicsProducts = [
 const beautyProducts = [
   {
     id: 1,
-    name: 'Beauty1',
-    price: '$29.99',
-    image: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAABLFBMVEX///9VGSMAAABYGifn4+BiGynf29hdGyfV0dDg3NlVGSVIAABlHSszMzPKxsXAu7clJSVEAADFwb7U0M+7trDr5+TGwr/OysdyITC5tLDa19KxrKhUFyFKAADU0M3IxMNOABM/AABRDxubm5uppaJMAA5NABY5OTlOABD38/M7AAAsAAAzAABnNj8ODg6VlZXFtbhpLzmWdXqGY2i8qa1+V13OwcOvl5tvQ0uaf4NeJTBjY2MVFRVYESJiABqYdHhpECN5QUyhioq8q62Re3tfQEJJIyceAACIb2+nmJduT1BBDRY4ABBVNDcvAAB6T1Y9JyyFhYV1dXVXV1d2XGFcSU5FNThKQkMsHyGog4dzMT/k19yLX2hjABOESVSdcXiSW2NnACG2jJSoeYBIau/zAAAQdklEQVR4nO2dDXfaRhaGRYRASAQiQGCwAFmxqOWGBhCSQFvZfHTbpOmu0v3IFkPsJP3//2Fn9C0hbFzbWMPhPac9DsU98+S9c+/MnRFg2EEHHXTQQQcddNBBB8WIJXvabDyeaT0yJz33YB5fkjYSTs4t9bv0Sac7mOWee0yPKWlwcoIP5qrnXU7VurVnHdLjSqWNWTr64k/qcwzlaTR/M46Zd3/fH0L1fBj38s97Q8jy47iXpfPerkfyVNJOYlFy38c6i6LeMbGE5C+zXY/kqSQzsVHa+/7drkfyVJJ5Me7l99//uuuRPJW0M3oe8/JPb37e+VCeSBmaw2PK4bvfPux+LE+kkSDGJJVffzvf/VCeSL0mxy+jL0r/+HDOPsdonkQjQRhFX5M+fHiTeY7BPImWDLUWp+ybD2/2ZtkGskqHYiJxmvt+rwhZgRO64ZfUf354g8zCVOqNZaCx1lOXG7oTc5prhotiD0RpXJlMotI6zQtAvEjTIp8yZ72YDGIKnB6inwPC97sa4sMk4QLX4YEAJJdKcQJP00x3PAw3m1SRo0NB+f6fyBAqPNV9N9Nm44E8ykIXASfHdUQGV2aqX/FM4SyUTtEhXDKpjub+QWJVbTyiGVGgKMtNzhz3SMvMOb/uoRb9nyVSQzFFMeGJJy3ngw5DiwLHQUqR00fKqivKwfdUf/n48eMvSHTbNBHMPXF9/SWpmqILNH0mWFmIYcKrmtcvXr56+eJ4V6N8iHp0KkUZ+lqv0FK6PB/LyqjbNQeR6o4QoURTqVRK0NeW1sH3rL9kE54+2bAeU+8ZQEgJnfstwVAixGQwEwEjc6/WGVKEABEEKpWiB/f4HZvw9ZON6ZEFij60URzF55s4IUaIKaKFKAhbT0bUCDEZphtQGOnY1miMbMK3Tzqox9XYKhqg9ne3O/dEjxCsbTgrpQr0VjkVQUJMbQpOpCpb9NBQJMQyOm8hpnjjbhttwt93MKzHlCTTnG2jaN5l4+sfEkS4XErb3g3RwMZwu9mYIMKlcsIw+qC3XX+a7DqRyjXNW/u9ySFcdmD+4AQal7eq5tLAidSU0JndYr1N+K/HGuYDJDuegMBr6rNtjFQN0fkNXt/8l5IYwhnY33Kwt2RFHs8o29TzsTMbUxwjb7IxMYQ8l+K62ojmOdfI8W1bXUdLU3RCle9s6Gu/BYTfJYFwAIKU17DMTGcEZ8yi0rs7tc4NN+NssDExhCwHTGxCH1SZ4TlvQt4ZrJLMcNQtszExhFiPhogk/JEd86I7IcXRnUb2hI5rY8yGIzmE2KwJl5r21lbSdNpZfApic6DeDukvcej1JU6CCK02jOB2C6V512EELzL6uHwr5PDMnbw6GflPNuHfnmjM95QJEfteg0I1GacYgGilu4PyLb+a64qUvfuPtuISRYiZPHTRD7SlfOJUDwDZEfVotzcgEKlO+WfCh4Vvf0wSoe1iJ9BmYmd401kGpDiObzLyfFO4arRjeBgxYYSYYiGG5tLcWwYAgyhBZEYaGUvZ69hFhuKDS/GkEWIw2LhIJ40cdNylizXVRFqXhzGFsuxMWz54Uy9xhNgYZH6BjyzBpGGX4QOQYAty1pXnUcqy/RfB9QMeJ48QmzcFULvXzjQz4zNRCEBCSt5QhqFaObfSTeh2WwIJsUyXp1Jxy5OeIribCTf3gIgFu2atl3a6Awqsi8Io4YRwqZlK0XELaXZoiqKQCgse/zJiX3k3Hs9k+B9D16ISSQh3i1RqQ5NpqY0Y0aBSUUxOEOA1DZhLDfCLUoZs1dqlEvnvH179+PLFy3axXi/WGjk2KU8JzWG+wTfsEFkASQscF6V0BE/fCu366dvXp6fH9de///72db1EkuVatV4/Pm3tFmSzVBHmm423taSerIvhzOOaaZ1oVAu1Ur1YJslC8fT0tFLLpNO5TKtaTBAhtuzyKYq+7ZoIqSm6fatmDRArFAqAsEaWC/XT16fHAcLGjsa/hSS4vhFvP2KSlsPBqMM0ReuiFM+LjG63T2seYTG5hKD4M2Adrdz5NimtDrXxQJYHs6F7oa/WDhLWA4TJukw7BPmG7/6VK8yt9iYPE/YsYhkXKAGPbmq3EAkJ6zUn0ySYEEuP+BQn3v8CbMP2sOwSNjzC7W8A7EiwB8PdmlJjlavaHpZtwqrjYT2BhPCJNIB432ez0lVQ850oBZmm0PAIk/hggooLHK3cb7XFuoQ1K9MEPEwiIcaaItW5X0plS5Cw4GQau1o0kksIKyMlGPdJqR5hDSQXvx4CwqSsvKMaNjlu09lLnGzCmkN4XEg+IZbrd25fpYYluYSF0ikaHmKwR8XR8t1vsyV587CESJRCaWeCONp2gBZhe53wOMmEGKnznS3vegHCQtEndOZhKemEcIGz7RVhixBEaTlImHgPMdi6F062yjcWYbVMtpCKUihV7zDbXBFuA8JKu0zWoh4++QgfLFZpilvc2IOE9VKEsIQEIVyK87c+kmCp4ESpRVgp2Ks2VAgxVeDpu/JNue142AZUdq+tUQOE9Z2M8MGSFHpzo9EWCQmrLVQJMew9fccSLmN5iDAhpvK3p9QcbGO4hO7uCRAWdzXAh4sdndy2hLMJayHCGlqEGDZj8M1Nl3TVJiy366fHRUQJQfXfnFItwqJFGPKwtMsBPlzS4HxTi4ptF6oV++AiSHha3ekAH0Fqc8NkBBtEm7CNOCHcbsSeRABC9/DJJyzWj5F4IDgitR+3ZVz3MGN5iCIhJsU+j1Dy5uEp8oTxAoRFN0orXpQm6Aj4wSoV2pX9JmwHPHSjFBD+hZO6pKrgEhaDuTRZh9wPU60dnYetPSNstSMe2lGarGP8B6lsE5IRwqQdcj9AjXY7TGjPwwQeAf9VNdpWSziaafaIMAOjtGB7WPGjdN8Iq2Wf0PYwoUfAf0U5OA/XPdwjwnSpXaxXrUPgPfWQLdkeeoSZ1v4RlorVNcLEHz1tL6lUBYQtEraf9pmQ3HvCcpgQgQPS7eUSll3C3P4SHu8pIVYFhKXWHkepS1gOEz73qB5T1ZJNWPUIC3tGWIOEZZeQtT1E54B0C9UcD9uAsOpG6V4Rlh0P28F5uHeERZcwB6O0iiBhOpPJkCSZYdn1p+5I9Alf//vlC0c/vHr56tWr7/4XPOEliw5hBV3C714ECF/++OLFj8FikIGELasl7BMidYwv/efjP/7730+fPv3v0x9//AH++fjxY/DMO217SBa8aoEaYZnOEkQ+TxC4DgV/ygY/K9oibGUQJiSb2SwgzGZxiqLwLBTOB0xkISFsCdfraEapNOCz2TxwLpv1CLPBL+0KEdoeVpC6bKKep6CHADDlEzYDjSbJJSwGPESJEBueAaQI4VngA/RjCZG6bLK05yGRhQ84O4TZEz/VxBBWkCKUZMGZhzhEdDwMXMmMJUTpKobKAOOsXJryCeng2g2u2moZshaMUpQI4TwkvCiN8dAmJG1CN5cidRVDbUILbULcmYccEzg9KwHEgk/YQJiQSnm5NHg9CjZqCg0vSpElzAerRWgewkZNLUKI1FUMl5DAAxU/Smh5WCl6UYrUVQyYaSAgAeahRxgkqLnzsOLOwzpShGnaKod2lLqZxgh+XxckrDY8QvjYE1KXTZZxhFkjEKatokVYRpOw3O2AyIwh7Pr7p0bRPUB0M039GJ2rGGOR8ghxlxCswnHu3Lu+n7EIM61Sxa+H6BAOOmuEBGFtFRmPMB0mhD8gRCgLcYQEJPQe+bIIGwEPASE6FxUUSEjEEYreJ1+yjodVj7COEKEZIMyGojRMWGplyiUkCUebCb2lqUMIUqgfpegckAJCPJ6Q979fz/EwGKUIEXIbCb1WTYCwih5h1yE88gitRJPF8TUPSeghrPg1lKJU0tc8dAk7/qImQtgqIkUIy6HrIY57UbqB0IpSeCvjGcd8P7H4GqHnod/2dg4ukCRMG86SJobQfwA66iGI0mcc8/2Us5alxsXFJJ83zsQOjhtnFwZAxHHB/5SeUtRDhAgzPCA0LrXeYjKZztUBrQ/mqvzVIvQ/SrJatAmLCBKScPPUhz9pV/DfQ2vyKQYkNL131RzCOoJRStKAsCktJ9Kyh42NJTbGBitM4wEh53+VLNzkBz0sIpRpygwkXGI9TGWlpjjDZtgyja2gh1zfexckrAUJEfJQhR6ezTEpd5WWzpghtmIxSbuAuZTSvXc1bMKC7yE6VzF6DFjG8Ats8flCw9QZJjEZ7OLCqhaU4b0rEyWsoEM4FwGhMcW0z0cT2LVQmnPMIKzSSIneu9YIEfJwCL+ONGtcL27yX5t9pWN0VkMzb9VDivHelbMIoXcuIToXFTT4nbJZAlaKYS8nyhj8ii/pwiI88d6Vtj0MEKJzjD/rUPCewhes11to2JyVutJycGnYhN7+gUWYcAw8xLOTBcYOv16UwZ+7mJQxiShhBRJmfEKEjoB/sjy86GESNp30JfZExtLSypmHXrdJqkQ8RIjwnUX4eYl9+UoQPJs50bDF1UXeJvQ+6QwSVkMeonNAKguWh6BQSBPiTGLPYeviyiak/Q8VqCNOSOQn19+0PMFrGm+Yg0vCIfS/+QphQsUmPJpMJgCL50H5NyZ5h9D/ZCWEo9S0ojR/BGRhWX0ah5CJISwBQniRHZ1j/JFAcUIMIQFXbf6n8cGDCzLoITKEUlfgumY/P5nYhBxuZAmDILpTAw8cXGBgB1wiXQ/RIuxzwng0XSxuJl/y/akw6pv6dHF5fWPKRpCwGvKwUDxG5pAbtkv7l1Pz+vrPm8lUPht3hyPz283VYjEKeViwPCz78xAdQoOjVoPL6y9fvx19MVf8uK8sVpf56WoFCP22PmzUAMKW7SF8sAuZI2CWpyjDMK6ujq6PCP1mpeij/nR1M82DaUh1fMKWS2h5WEWJsGm3vO1cCljtjrC9Aw40vUmQajwPYaZB5oCUZQKEebfn7dTDQNPbI7RyaRUhwiW9TmhX/GyKCjS9GxZhuWTPQ9QJPQ8DTe9ckBB6iMzhWvkWQl33W8LpsIcIHR+qNGf4mcYnBLm0cznwb++l6w6hPQ8RIuwxpjLqX1mEE0BogFXbtJ/PT029C+S9jwWE5QxZcqpF5fQZx3w/zWnFVG4ur/6cfrtarAxT1i+NBbFa5a+nK4DrvU9ClnDIjOT+4iavXd3kb6aGcqPLncsrSNi9NCjOex+6hBpjrvqLxcW3o5vp9Uowb3TFkL+sVldT3TQowXufVEGVcCaOFH2qTK6v/rwCHo5Wupydmisz38928SAhsh7OeJBLCeLIEsw0FPwjYT3JRuG8nzEr1lMzgLBhV4tnHPP9NO7AGzRWKg2taSzC1BphFVFCwidMBQk53l+bFVElHIQ9zFqEeZsQbIH9PRIgLCBJKAtBQiJMiIv+QxUlVAkVIRSlwMSsH6WU6De9q2HCyjOO+X4a3U7oN71twjZ6hM7dSy9Ks6lUkNBvCdfCHqJzBBwlDFYLfC8I5WC1gI3uICFH+9WiVQGEGY8QnePDpc4IBhGp+NZzbAYvisEnZav1egvsD4utHNjiowMIFpzzdyPi8+fp6uJicsHzZ5aazYu8MhiGu74Sm85lGplcOjFfG7+9JPipO0vN0bCnlpcIUhx00EEHHXTQQQclRf8HX02SB/I2TJMAAAAASUVORK5CYII=',
+    name: 'THE MAN COMPANY Lightening Lip Balm',
+    price: '199',
+    image: 'https://rukminim2.flixcart.com/image/612/612/xif0q/lip-balm/a/f/n/4-lightening-lip-balm-vitamin-e-liquorice-coconut-oil-provides-original-imagvp4hnbppv3rz.jpeg?q=70',
   },
   {
     id: 2,
-    name: 'Beauty2',
-    price: '$49.99',
-    image: 'https://example.com/beauty2.jpg',
+    name: 'Lakmé Absolute White-Intense Wet ',
+    price: '1,293',
+    image: 'https://rukminim2.flixcart.com/image/612/612/xif0q/combo-kit/g/i/m/-original-imagzvxubesgmpwe.jpeg?q=70',
   },
+  {
+    id: 3,
+    name: 'COLORESSENCE Face Trio Kit ',
+    price: '475',
+    image: 'https://rukminim2.flixcart.com/image/612/612/xif0q/combo-kit/k/z/9/face-trio-kit-combo-of-3-for-light-skin-tone-primer-panstick-original-imah3823drzghffp.jpeg?q=70',
+  },
+  {
+    id: 4,
+    name: 'Iba MUST HAVE Makeup Set  ',
+    price: '1939',
+    image: 'https://rukminim2.flixcart.com/image/612/612/xif0q/combo-kit/q/e/w/must-have-makeup-set-fair-6-8906074713742-iba-original-imah3fx5pfpjwhwa.jpeg?q=70',
+  },
+  {
+    id: 5,
+    name: 'COLORESSENCE Glitterati Compact Powder Gold Range  ',
+    price: '444',
+    image: 'https://rukminim2.flixcart.com/image/612/612/xif0q/combo-kit/3/t/x/glitterati-compact-powder-gold-range-spf-15-oil-free-matte-original-imah38234tr2frrg.jpeg?q=70',
+  },
+  {
+    id: 6,
+    name: 'COLORESSENCE Makeup Primer  ',
+    price: '209',
+    image: 'https://rukminim2.flixcart.com/image/612/612/xif0q/primer/j/8/t/30-makeup-primer-with-gel-based-formula-for-poreless-skin-finish-original-imah35vnhwfvrf5a.jpeg?q=70',
+  },
+  {
+    id: 7,
+    name: 'MARS 3 and Matte Lipstick Box Set',
+    price: '349',
+    image: 'https://rukminim2.flixcart.com/image/612/612/l2arp8w0/lipstick/h/o/5/9-6-3-peach-and-nude-matte-lipstick-box-set-mars-original-imagdzfmamrdchcw.jpeg?q=70',
+  },
+  {
+    id: 8,
+    name: 'Perpaa Intense Kohl Long Stay Kajal',
+    price: '199',
+    image: 'https://rukminim2.flixcart.com/image/612/612/xif0q/kajal/t/x/r/0-35-intense-bold-colour-twist-up-pencil-kohl-kajal-waterproof-original-imah2fgzmmtz3ute.jpeg?q=70',
+  },
+
+
+
+
   // Add more beauty products
 ];
 
@@ -239,16 +279,60 @@ const fashionProducts = [
 const sportsProducts = [
   {
     id: 1,
-    name: 'Sports1',
-    price: '$49.99',
-    image: 'https://example.com/sports1.jpg',
+    name: 'CLOVERBYTE 3 No. Size Hard PVC Plastic Bat With Tennis Ball',
+    price: '399',
+    image: 'https://rukminim2.flixcart.com/image/612/612/xif0q/shopsy-kit/1/d/z/white-cricket-bat-5-no-hard-pvc-plastic-tennis-ball-for-children-original-imagtyyktygpygfw.jpeg?q=70',
   },
   {
     id: 2,
-    name: 'Sports2',
-    price: '$89.99',
-    image: 'https://example.com/sports2.jpg',
+    name: 'YONEX Mavis 200i Green Cap Nylon Shuttle - Yellow',
+    price: '499',
+    image: 'https://rukminim2.flixcart.com/image/612/612/xif0q/shuttle/y/l/s/-original-imaggdsyukp9tcup.jpeg?q=70',
   },
+  {
+    id: 3,
+    name: 'ADONYX Portable Bike Floor |120PSI with Multifunction',
+    price: '279',
+    image: 'https://rukminim2.flixcart.com/image/612/612/xif0q/pump/l/v/j/portable-bike-floor-pump-120psi-with-multifunction-ball-needle-original-imagub4cgnkgdnbf.jpeg?q=70',
+  },
+  {
+    id: 4,
+    name: 'Hipkoo Sports Junior For Kids (Boys/Girls) Boxing Kit',
+    price: '589',
+    image: 'https://rukminim2.flixcart.com/image/612/612/kyeqjrk0/kit/j/h/z/junior-boxing-kit-for-kids-boys-girls-boxingkit01-15-hipkoo-original-imaganex4kdyveha.jpeg?q=70',
+  },
+  {
+    id: 4,
+    name: 'Hipkoo Sports Junior For Kids (Boys/Girls) Boxing Kit',
+    price: '589',
+    image: 'https://rukminim2.flixcart.com/image/612/612/kyeqjrk0/kit/j/h/z/junior-boxing-kit-for-kids-boys-girls-boxingkit01-15-hipkoo-original-imaganex4kdyveha.jpeg?q=70',
+  },
+  {
+    id: 5,
+    name: 'NIVIA Storm with Pump Football - Size: 5',
+    price: '399',
+    image: 'https://rukminim2.flixcart.com/image/612/612/xif0q/ball/q/r/9/420-470-storm-white-moulded-football-with-ball-pump-5-9967-original-imagt6zxwhfrcvez.jpeg?q=70',
+  },
+  {
+    id: 6,
+    name: 'Shopeleven Light Weight Tennis and Cricket Ball Tennis ',
+    price: '255',
+    image: 'https://rukminim2.flixcart.com/image/612/612/xif0q/ball/p/f/b/480-light-weight-tennis-and-cricket-ball-tennis-ball-soft-bouncy-original-imahfycvh5bnk8fz.jpeg?q=70',
+  },
+  {
+    id: 7,
+    name: 'galaxy hi tech Size Adjustable PU Wheels Aluminum-Alloy ',
+    price: '950',
+    image: 'https://rukminim2.flixcart.com/image/612/612/k47cgi80/skate/z/k/y/38-43-size-adjustable-rolling-skates-for-children-1-roller-original-imafgcf6eaffh3me.jpeg?q=70',
+  },
+  {
+    id: 8,
+    name: 'Quicknik Bike Cycle Portable Activated High Pressure',
+    price: '350',
+    image: 'https://rukminim2.flixcart.com/image/612/612/xif0q/pump/c/t/f/bike-cycle-portable-activated-high-pressure-universal-foot-air-original-imahyp6kkfcjvsxb.jpeg?q=70',
+  },
+
+
   // Add more sports products
 ];
 
@@ -256,16 +340,53 @@ const sportsProducts = [
 const healthProducts = [
   {
     id: 1,
-    name: 'Health1',
-    price: '$19.99',
-    image: 'https://example.com/health1.jpg',
+    name: 'NutraFirst Keto Nutrition Fat',
+    price: '348',
+    image: 'https://rukminim2.flixcart.com/image/612/612/xif0q/vitamin-supplement/6/y/s/300-keto-nutrition-fat-burner-capsules-for-naturally-weight-original-imah2tv2gtzb9nab.jpeg?q=70',
   },
   {
     id: 2,
-    name: 'Health2',
-    price: '$39.99',
-    image: 'https://example.com/health2.jpg',
+    name: 'Indus Roots Gummies for Energy',
+    price: '949',
+    image: 'https://rukminim2.flixcart.com/image/612/612/xif0q/vitamin-supplement/8/f/j/60-energy-boosting-gummy-ashwagandha-vitamin-d-supplement-60-n-original-imah34yypfxgr9nh.jpeg?q=70',
   },
+  {
+    id: 3,
+    name: 'MUSCLEBLAZE Biozyme Performance with Shaker',
+    price: '2,459',
+    image: 'https://rukminim2.flixcart.com/image/612/612/ku2zjww0/protein-supplement/z/v/l/whey-protein-biozyme-performance-whey-labdoor-usa-certified-with-original-imag7adgz4qtwhzf.jpeg?q=70',
+  },
+  {
+    id: 4,
+    name: 'Nature Sure Premium Kalonji Tablets',
+    price: '259',
+    image: 'https://rukminim2.flixcart.com/image/612/612/xif0q/vitamin-supplement/s/z/c/180-premium-kalonji-tablets-black-seed-nigella-sativa-2-packs-original-imah35ybagsspnac.jpeg?q=70',
+  },
+  {
+    id: 5,
+    name: 'Swisse High Strength Fish Oil',
+    price: '618',
+    image: 'https://rukminim2.flixcart.com/image/612/612/xif0q/vitamin-supplement/5/c/h/40-high-strength-fish-oil-with-1500mg-omega-3-g-for-heart-brain-original-imagmdf8jzzzby5z.jpeg?q=70',
+  },
+  {
+    id: 6,
+    name: 'ZEROHARM Fat Burner tablets',
+    price: '974',
+    image: 'https://rukminim2.flixcart.com/image/612/612/xif0q/vitamin-supplement/z/d/w/60-fat-burner-tablets-for-weight-loss-belly-fat-burner-with-original-imahf7ycztpkrzt9.jpeg?q=70',
+  },
+  {
+    id: 7,
+    name: 'POWERLIFT for Muscle Protein Powder with shaker bottle',
+    price: '520',
+    image: 'https://rukminim2.flixcart.com/image/612/612/xif0q/protein-supplement/3/g/y/weight-gainers-mass-gainers-for-muscle-protein-powder-with-original-imah2gx9yue3tzgd.jpeg?q=70',
+  },
+  {
+    id: 8,
+    name: 'HERBALIFE Formula 1 Nutritional',
+    price: '1399',
+    image: 'https://rukminim2.flixcart.com/image/612/612/xif0q/protein-supplement/f/n/w/nutrition-bars-formula-1-nutritional-shake-mix-chocolate-500-g-original-imagzj4y9jfffchm.jpeg?q=70',
+  },
+
   // Add more health products
 ];
 
@@ -273,16 +394,56 @@ const healthProducts = [
 const stationaryProducts = [
   {
     id: 1,
-    name: 'Stationary1',
-    price: '$9.99',
-    image: 'https://example.com/stationary1.jpg',
+    name: 'TITIRANGI Rakhi Gift Collection for girls',
+    price: '629',
+    image: 'https://rukminim2.flixcart.com/image/612/612/l4rd0280/shopsy-art-set/j/8/w/unicorn-stationery-gift-set-combo-bottle-bag-fur-pouch-pencil-original-imagfh9adh59unbh.jpeg?q=70',
   },
   {
     id: 2,
-    name: 'Stationary2',
-    price: '$14.99',
-    image: 'https://example.com/stationary2.jpg',
+    name: 'ROSEFAIR Dream Space Stationery Kit',
+    price: '629',
+    image: 'https://rukminim2.flixcart.com/image/612/612/xif0q/geometry-box/o/s/b/dream-space-stationery-kit-set-for-boy-6-in-1-cartoon-school-original-imagvtymvry2j4xz.jpeg?q=70',
   },
+  {
+    id: 3,
+    name: 'AR BHUMI School Stationery Set For Kids ',
+    price: '799',
+    image: 'https://rukminim2.flixcart.com/image/612/612/xif0q/art-set/e/5/c/school-stationery-set-for-kids-birthday-gift-pack-of-6-items-ar-original-imagsvsnuypwh2pg.jpeg?q=70',
+  },
+  {
+    id: 4,
+    name: 'JMBW INTERNATIONAL All in One 27 Items Stationery Combo ',
+    price: '1,424',
+    image: 'https://rukminim2.flixcart.com/image/612/612/xif0q/office-set/o/w/i/school-specials-stationery-kit-jmbw-international-original-imah2v2az46z9u8g.jpeg?q=70',
+  },
+  {
+    id: 5,
+    name: 'ARTIOS Painting Kit - 105Pcs Set',
+    price: '2,680',
+    image: 'https://rukminim2.flixcart.com/image/612/612/xif0q/art-set/2/9/t/painting-kit-105pcs-set-with-brushes-painting-papers-board-easel-original-imaggwzugmu5dudd.jpeg?q=70',
+  },
+  {
+    id: 6,
+    name: 'fezeedi 208 PCs Art Drawing Color Set Children Art Draw',
+    price: '1,799',
+    image: 'https://rukminim2.flixcart.com/image/612/612/xif0q/art-set/6/r/u/208-pcs-art-drawing-color-set-children-art-drawing-set-for-kids-original-imah2ycpebcfkhpa.jpeg?q=70',
+  },
+  {
+    id: 7,
+    name: 'YAJNAS 3X4 Feet,Non-Magnetic',
+    price: '2,499',
+    image: 'https://rukminim2.flixcart.com/image/612/612/kzsqykw0/black-white-board/x/n/p/3x4-feet-non-magnetic-both-side-writing-chalkboard-whiteboard-original-imagbqf3wys2g3qh.jpeg?q=70',
+  },
+  {
+    id: 8,
+    name: 'SAUBHAGYA 2kg Brass Wall Hanging Bell for Home Mandir Temple Living Room',
+    price: '2,399',
+    image: 'https://rukminim2.flixcart.com/image/612/612/xif0q/general-bell/r/c/n/ghanta-2kg-saubhagya-original-imaghdf8v6vmuzrw.jpeg?q=70',
+  },
+
+
+
+
   // Add more stationary products
 ];
 
@@ -290,16 +451,52 @@ const stationaryProducts = [
 const automotiveProducts = [
   {
     id: 1,
-    name: 'Automotive1',
-    price: '$199.99',
-    image: 'https://example.com/automotive1.jpg',
+    name: 'SAPIS Liquid Car Polish for Exterior',
+    price: '129',
+    image: 'https://rukminim2.flixcart.com/image/612/612/xif0q/car-polish/e/y/5/200-all-in-one-shine-protectant-liquid-body-polish-to-shine-and-original-imahfrvwahyjghxn.jpeg?q=70',
   },
   {
     id: 2,
-    name: 'Automotive2',
-    price: '$299.99',
-    image: 'https://example.com/automotive2.jpg',
+    name: 'Niklace Bike Cleaning Kit Combo',
+    price: '399',
+    image: 'https://rukminim2.flixcart.com/image/612/612/kmi2g7k0/automotive-combo/b/p/g/499-niklace-original-imagfey8hctzawrg.jpeg?q=70',
   },
+  {
+    id: 3,
+    name: 'AutoPowerz 60 Led ',
+    price: '1,259',
+    image: 'https://rukminim2.flixcart.com/image/612/612/xif0q/head-light-unit/m/x/x/led-60-led-with-120-w-12v-32v-dc-white-autopowerz-original-imaghanffenmhafd.jpeg?q=70',
+  },
+  {
+    id: 4,
+    name: 'STARQ product Combo',
+    price: '360',
+    image: 'https://rukminim2.flixcart.com/image/612/612/kvzkosw0/automotive-combo/x/d/d/ac-qc-kortex-original-imag8rgw4htpzpex.jpeg?q=70',
+  },
+  {
+    id: 5,
+    name: 'Wavex Medium Cut Rubbing Compound Plus Polish',
+    price: '869',
+    image: 'https://rukminim2.flixcart.com/image/612/612/xif0q/automotive-combo/r/p/l/-original-imagzr8x5bujucv7.jpeg?q=70',
+  },
+  {
+    id: 6,
+    name: 'SHOPONE Trading Car polish Combo',
+    price: '839',
+    image: 'https://rukminim2.flixcart.com/image/612/612/xif0q/automotive-combo/5/z/a/sail-shopone-trading-original-imahf3mvpn3kdyfb.jpeg?q=70',
+  },
+  {
+    id: 7,
+    name: 'INDOPOWER BOo1995-TYRE SHINER 500ml. Combo',
+    price: '376',
+    image: 'https://rukminim2.flixcart.com/image/612/612/xif0q/car-polish/f/k/4/500-css1994-indopower-original-imagkkfhv6acs36n.jpeg?q=70',
+  },
+  {
+    id: 8,
+    name: 'aksmit 1 pair magic light, 1 pair handle light Combo',
+    price: '336',
+    image: 'https://rukminim2.flixcart.com/image/612/612/kgv5x8w0/automotive-combo/h/7/3/handle-light-and-magic-light-combo-for-hf-deluxe-hl450-aksmit-original-imafwzpr93pfnxhj.jpeg?q=70',
+  }
   // Add more automotive products
 ];
 
@@ -307,16 +504,60 @@ const automotiveProducts = [
 const kitchenProducts = [
   {
     id: 1,
-    name: 'Kitchen1',
-    price: '$49.99',
-    image: 'https://example.com/kitchen1.jpg',
+    name: 'KUBER INDUSTRIES 5-Layer Revolving Multipurpose Storage',
+    price: '2,954',
+    image: 'https://rukminim2.flixcart.com/image/612/612/xif0q/kitchen-rack/l/z/6/89km23104-kuber-industries-original-imahf2jcqgxkq3jg.jpeg?q=70',
   },
   {
     id: 2,
-    name: 'Kitchen2',
-    price: '$79.99',
-    image: 'https://example.com/kitchen2.jpg',
+    name: 'GREEN TOUCH 3 Tier OTG & Microwave Oven Stand Rack Hold',
+    price: '1999',
+    image: 'https://rukminim2.flixcart.com/image/612/612/xif0q/kitchen-rack/q/w/i/3-tier-2-self-microwave-otg-stand-kitchen-oven-stand-kitchen-original-imagp6hgkyqfba38.jpeg?q=70',
   },
+  {
+    id: 3,
+    name: 'TANAZ Automatic USB Charging Wireless Water',
+    price: '629',
+    image: 'https://rukminim2.flixcart.com/image/612/612/xif0q/water-dispenser/n/c/9/7-3-0-3-automatic-usb-charging-wireless-water-can-dispenser-pump-original-imahybs9yugzccye.jpeg?q=70',
+  },
+  {
+    id: 4,
+    name: 'Cutting EDGE Polypropylene Fridge Container - 535 ml',
+    price: '459',
+    image: 'https://rukminim2.flixcart.com/image/612/612/k6mibgw0/container/y/g/u/celbxbgs6vi-cutting-edge-original-imafpyyjja4vshhg.jpeg?q=70',
+  },
+  {
+    id:5 ,
+    name: 'GREEN TOUCH 3 Tier Microwave & OTG Oven Stand Rack Hold',
+    price: '2449',
+    image: 'https://rukminim2.flixcart.com/image/612/612/xif0q/kitchen-trolley/2/c/4/1-7-3-tier-kitchen-trolley-green-touch-3-original-imahynsgaubvfgcv.jpeg?q=70',
+  },
+  {
+    id: 6,
+    name: 'MEVIGO Kitchen Rack 3 Tier Square Rotating Stand,',
+    price: '1999',
+    image: 'https://rukminim2.flixcart.com/image/612/612/xif0q/kitchen-trolley/j/t/6/0-2-kitchen-trolley-rack-kitchen-trolley-basket-kitchen-trolley-original-imah3hhfyqufkgar.jpeg?q=70',
+  },
+  {
+    id: 7,
+    name: 'KITCHEN CLUE Stainless Steel Hot Tea',
+    price: '1999',
+    image: 'https://rukminim2.flixcart.com/image/612/612/xif0q/water-dispenser/0/i/x/without-cabinet-23-2-5-stainless-steel-hot-tea-water-containers-original-imah2qhqnsdk7zkg.jpeg?q=70',
+  },
+  {
+    id: 8,
+    name: 'KASHTABHANJAN 3 Layer Stand for Kitchen Fruit Vegetable',
+    price: '899',
+    image: 'https://rukminim2.flixcart.com/image/612/612/ki7qw7k0-0/kitchen-trolley/e/g/d/vegetable-stand-nano-triple-stainless-still-kashtabhanjan-original-imafyftzyfvx5yjg.jpeg?q=70',
+  },
+  {
+    id: 2,
+    name: 'GREEN TOUCH 3 Tier OTG & Microwave Oven Stand Rack Hold',
+    price: '1999',
+    image: '',
+  },
+
+
   // Add more kitchen products
 ];
 
@@ -324,16 +565,52 @@ const kitchenProducts = [
 const petSupplyProducts = [
   {
     id: 1,
-    name: 'PetSupply1',
-    price: '$29.99',
-    image: 'https://example.com/petsupply1.jpg',
+    name: 'Petterati Itch Control Dog Shampoo For All Dog Breeds',
+    price: '461',
+    image: 'https://rukminim2.flixcart.com/image/612/612/xif0q/pet-shampoo/q/x/1/400-8902979012379-petterati-original-imahyyywbcasg9gz.jpeg?q=70',
   },
   {
     id: 2,
-    name: 'PetSupply2',
-    price: '$39.99',
-    image: 'https://example.com/petsupply2.jpg',
+    name: 'Dr Venture Anti-Tick and Flea Shampoo 200 ml ',
+    price: '178',
+    image: 'https://rukminim2.flixcart.com/image/612/612/kyj0vbk0/pet-shampoo/y/o/x/200-anti-itching-insect-repellent-anti-tick-and-flea-shampoo-for-original-imagaqwjy4gdeaqh.jpeg?q=70',
   },
+  {
+    id: 3,
+    name: 'Pet Grains Chicken and Mutton Munchies Chew Sticks Combo 500 Grams(250Grams Each) Chicken, Mutton Dog Chew',
+    price: '599',
+    image: 'https://rukminim2.flixcart.com/image/612/612/knhsgi80/pet-chew/h/o/q/500-dog-chewstickscombo-pet-grains-original-imag25tff9yqad8a.jpeg?q=70',
+  },
+  {
+    id: 4,
+    name: 'Unik Dog Pet Food Calcium Treat Healthy Chicken Puppy Dog',
+    price: '149',
+    image: 'https://rukminim2.flixcart.com/image/612/612/xif0q/pet-food/g/g/w/0-5-dog-2-unik-puppy-chic-bis-500gm-6in-bone-1-01-unik-original-imahfgxehyqhq59k.jpeg?q=70',
+  },
+  {
+    id: 5,
+    name: 'Pet Life Organic Aloevera & Rose Cat Shampoo',
+    price: '299',
+    image: 'https://rukminim2.flixcart.com/image/612/612/xif0q/pet-shampoo/w/x/n/200-organic-aloevera-rose-cat-shampoo-for-healthy-shiny-coat-for-original-imagvuffhzhzbnsh.jpeg?q=70',
+  },
+  {
+    id: 6,
+    name: 'Foodie Puppies Rechargable Pet Electric Nail Trimmer ',
+    price: '799',
+    image: 'https://rukminim2.flixcart.com/image/612/612/xif0q/pet-nail-clipper/w/z/y/dog-nail-grinder-with-led-light-2-adjustable-speed-nail-trimmer-original-imahfkcgyftymyp3.jpeg?q=70',
+  },
+  {
+    id: 7,
+    name: 'erhigh Jerhigh KSY Jerky Dog Treats, Chicken Crispy Jerky',
+    price: '8,990',
+    image: 'https://rukminim2.flixcart.com/image/612/612/xif0q/pet-treat/7/b/z/0-200-dog-1-snl-085-jerhigh-original-imagzfbzkwgtmkx7.jpeg?q=70',
+  },
+  {
+    id: 8,
+    name: 'SUNSUN JTP2800 Water Aquarium Pump for pet bath',
+    price: '3,999',
+    image: 'https://rukminim2.flixcart.com/image/612/612/k0bbb0w0/aquarium-pump/g/t/y/jtp10000-sunsun-original-imafkykezeb3huuf.jpeg?q=70',
+  }
   // Add more pet supply products
 ];
 
@@ -341,22 +618,53 @@ const petSupplyProducts = [
 const giftProducts = [
   {
     id: 1,
-    name: 'Gift1',
-    price: '$19.99',
-    image: 'https://example.com/gift1.jpg',
+    name: 'RSS SOFT TOYS Zip Bunny ',
+    price: '259',
+    image: 'https://rukminim2.flixcart.com/image/612/612/xif0q/stuffed-toy/k/0/2/strawberry-bunny-plush-toy-adorable-strawberry-rabbit-plushie-35-original-imagusvqsukxfdyf.jpeg?q=70',
   },
   {
     id: 2,
-    name: 'Gift2',
-    price: '$29.99',
-    image: 'https://example.com/gift2.jpg',
+    name: 'MPR ENTERPRISES Red Rose Gift',
+    price: '199',
+    image: 'https://rukminim2.flixcart.com/image/612/612/l0e6kcw0/stuffed-toy/v/e/w/red-rose-kids-adults-gifting-i-love-you-teddy-bear-32-mpr-original-imagc6z9rjwhh33x.jpeg?q=70',
   },
   {
-    id: 2,
-    name: 'Gift3',
-    price: '$29.99',
-    image: 'https://example.com/gift2.jpg',
+    id: 3,
+    name: 'THE CLICK INDIA Message Pills, Soft Toy, Artificial Flower, Jewellery Gift Set',
+    price: '345',
+    image: 'https://rukminim2.flixcart.com/image/612/612/xif0q/valentine-gift-set/m/b/w/valentine-s-day-valentine-day-combo-red-rose-heart-box-couple-original-imagy63rqyg8mfb7.jpeg?q=70',
   },
+  {
+    id: 4,
+    name: 'RSS SOFT TOYS Teddy Bear Pink',
+    price: '319',
+    image: 'https://rukminim2.flixcart.com/image/612/612/kwl0akw0/stuffed-toy/a/w/s/stuffed-toys-5-feet-pink-teddy-bear-high-quality-love-teddy-for-original-imag982ajfkjw83h.jpeg?q=70',
+  },
+  {
+    id: 5,
+    name: 'NAWEMA Showpiece Gift Set',
+    price: '244',
+    image:'https://rukminim2.flixcart.com/image/612/612/xif0q/valentine-gift-set/p/v/z/valentine-s-day-heart-spl-mug4100a-earnam-original-imagm9fx3uqtx4zs.jpeg?q=70',
+  },
+  {
+    id: 6,
+    name: 'Hug  Feel Lovable Cute Giant Life Size Teddy Bear',
+    price: '399',
+    image: 'https://rukminim2.flixcart.com/image/612/612/xif0q/stuffed-toy/l/h/i/lovable-cute-giant-life-size-teddy-bear-30cm-soft-toy-avocado-original-imahyr9qp7htaj9w.jpeg?q=70',
+  },
+  {
+    id: 7,
+    name: 'tgr Super Soft Stuffed Doll for Baby Girls ',
+    price: '385',
+    image: 'https://rukminim2.flixcart.com/image/612/612/xif0q/stuffed-toy/m/u/2/super-soft-stuffed-doll-for-baby-girls-super-soft-stuffed-doll-original-imahykgmzr8wvuzd.jpeg?q=70',
+  },
+  {
+    id: 8,
+    name: 'ME&YOU Cushion, Mug, Keychain Gift Set',
+    price: '449',
+    image: 'https://rukminim2.flixcart.com/image/612/612/xif0q/valentine-gift-set/f/u/o/birthday-iz19stsistercmk16mn-01-me-you-original-imah2trtxcjw37jm.jpeg?q=70',
+  },
+  
   // Add more gift products
 ];
 
@@ -364,16 +672,53 @@ const giftProducts = [
 const luggageProducts = [
   {
     id: 1,
-    name: 'Luggage1',
-    price: '$99.99',
-    image: 'https://example.com/luggage1.jpg',
+    name: '65 L Strolley Duffel Bag - High Quality Stylish Duffel Bag',
+    price: '439',
+    image: 'https://www.flipkart.com/trovety-duffle-luggage-expandable-high-quality-stylish-duffel-bag-travel-bag-wheel-bag-luggage-bag-wheels-strolley/p/itm8907d457b7101?pid=DFBGQUTMVZHMRMFQ&lid=LSTDFBGQUTMVZHMRMFQEUDWQW&marketplace=FLIPKART&q=luggage&store=reh%2Fplk&srno=s_1_1&otracker=search&otracker1=search&fm=Search&iid=en_B_zVL5iBCZaP9mmDjjio5ZSNCcoYwxBcaFpTjIr2l0W6jawc6GnuA4zoMDwbWFW-woaPQzjYvJrXdDBibkT0dQ%3D%3D&ppt=sp&ppn=sp&ssid=bx5ad0o0lc0000001723872743477&qH=df30aaa36f078d50',
   },
   {
     id: 2,
-    name: 'Luggage2',
-    price: '$149.99',
-    image: 'https://example.com/luggage2.jpg',
+    name: 'Soft Body Set of 2 Luggage 2 Wheels',
+    price: '1635',
+    image: 'https://rukminim2.flixcart.com/image/612/612/xif0q/suitcase/x/i/t/-original-imagh3vuzgywyxez.jpeg?q=70',
   },
+  {
+    id: 3,
+    name: 'Medium Check-in Suitcase ',
+    price: '4,270',
+    image: 'https://rukminim2.flixcart.com/image/612/612/xif0q/suitcase/a/p/p/65-5-6900eht1blk-topo-eco-luggage-trolley-bag-travel-bag-with-original-imagufkcgykfauph.jpeg?q=70',
+  },
+  {
+    id: 4,
+    name: '55 L Strolley Duffel Bag ',
+    price: '645',
+    image: 'https://rukminim2.flixcart.com/image/612/612/kyxb9u80/duffel-bag/f/b/h/new-model-duffel-luggage-travel-bag-v-003-duffel-with-wheels-original-imagb23mpkbxdteh.jpeg?q=70',
+  },
+  {
+    id: 5,
+    name: 'Expandable Travel Rucksack for Outdoor',
+    price: '635',
+    image: 'https://rukminim2.flixcart.com/image/612/612/xif0q/rucksack/a/1/l/water-resistance-trekking-hiking-travel-bag-rucksack-55-rucksack-original-imagcq6a3z65j4m4.jpeg?q=70',
+  },
+  {
+    id: 6,
+    name: 'Medium Check-in Suitcase',
+    price: '3149',
+    image: 'https://rukminim2.flixcart.com/image/612/612/xif0q/suitcase/n/p/f/65-denver-hard-sided-polycarbonate-check-in-24-inch-navy-blue-original-imagwfm5phkwj7x9.jpeg?q=70',
+  },
+  {
+    id: 7,
+    name: 'Soft Body Set of 3 Luggage 4 Wheels',
+    price: '6,639',
+    image: 'https://rukminim2.flixcart.com/image/612/612/xif0q/suitcase/d/h/h/-original-imagt75jvs7usmjc.jpeg?q=70',
+  },
+  {
+    id: 8,
+    name: '65 L Strolley Duffel Bag - High Quality Branded Stylish Trolley Duffe',
+    price: '849',
+    image: 'https://rukminim2.flixcart.com/image/612/612/krqoknk0/duffel-bag/5/n/h/bm-1120-bm-1120-strolley-duffel-duffel-with-wheels-strolley-original-imag5gn32vjj9wza.jpeg?q=70',
+  }
+  
   // Add more luggage products
 ];
 
