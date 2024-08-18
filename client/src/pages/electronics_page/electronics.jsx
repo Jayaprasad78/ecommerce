@@ -1,15 +1,14 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import { useCart } from '../../context/CartContext'; // Import useCart
 import { electronicsProducts } from './../../Products/Products'; // Import your products array
 import './electronics.css';
 import Message from '../../Component/addcartmessage/addcartmsg'; // Import the Message component
 
 const Electronics_page = ({ searchQuery, isAuthenticated }) => {
-  console.log("this is serach query",searchQuery)
   const [quantities, setQuantities] = useState({});
   const [showMessage, setShowMessage] = useState(false);
-
+  const { addToCart } = useCart(); // Access addToCart from CartContext
   const navigate = useNavigate();
 
   const filteredProducts = electronicsProducts.filter(product => {
@@ -39,28 +38,9 @@ const Electronics_page = ({ searchQuery, isAuthenticated }) => {
     }
 
     const quantity = quantities[product.id] || 1;
-    const cartItem = {
-      productName: product.name,
-      price: product.price,
-      image: product.image,
-      quantity: quantity
-    };
-
-    const token = localStorage.getItem('token');
-
-    try {
-      const response = await axios.post('http://localhost:5000/api/cart/additem', cartItem, {
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${token}`
-        }
-      });
-      console.log('Cart updated:', response.data);
-      setShowMessage(true); // Show the success message
-      setTimeout(() => setShowMessage(false), 3000); // Hide message after 3 seconds
-    } catch (error) {
-      console.error('Error adding to cart:', error.response ? error.response.data : error.message);
-    }
+    await addToCart(product, quantity); // Update cart using context
+    setShowMessage(true); // Show the success message
+    setTimeout(() => setShowMessage(false), 3000); // Hide message after 3 seconds
   };
 
   return (

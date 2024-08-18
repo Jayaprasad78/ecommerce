@@ -4,7 +4,7 @@ import axios from 'axios';
 import './Cart.css';
 import Alert from '../Alert/alert';
 
-const Cart = ({ isAuthenticated }) => {
+const Cart = ({ isAuthenticated, onTotalCountChange }) => {
   const [cartItems, setCartItems] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -29,6 +29,8 @@ const Cart = ({ isAuthenticated }) => {
 
         setCartItems(response.data.cart);
         setLoading(false);
+        // Pass the total item count to the parent
+        onTotalCountChange(response.data.cart.reduce((count, item) => count + item.quantity, 0));
       } catch (error) {
         setError(error.response ? error.response.data : error.message);
         setLoading(false);
@@ -36,7 +38,14 @@ const Cart = ({ isAuthenticated }) => {
     };
 
     fetchCartItems();
-  }, [isAuthenticated]);
+
+    // Update total item count every 1 second
+    const interval = setInterval(() => {
+      fetchCartItems();
+    }, 1000);
+
+    return () => clearInterval(interval); // Clear the interval on component unmount
+  }, [isAuthenticated, onTotalCountChange]);
 
   const handleRemoveItem = async (itemId) => {
     try {

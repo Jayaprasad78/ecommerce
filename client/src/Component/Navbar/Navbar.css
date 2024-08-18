@@ -195,7 +195,7 @@
     position: absolute;
     left:589px;
     top:45px;
-    color: white;
+    color: rgb(23, 10, 10);
     font-family:"Cabin", sans-serif;
 
 
@@ -213,7 +213,7 @@
     position: absolute;
     left:640px;
     top:45px;
-    color: white;
+    color: rgb(40, 9, 9);
     font-family:"Cabin", sans-serif;
 
 }
@@ -301,32 +301,50 @@
     
 }
 
-.navbar.signed-in .cart_userprofile{
-    display: flex;
-    position: relative;
-    
+.navbar.signed-in .shoping_cart {
+    position: absolute;
+    left: -169px;
+    top:2px;
+    color: rgb(202, 26, 26);
+    font-family:"Cabin", sans-serif;
+    font-weight: bold;
+
+
+}
+.navbar.signed-in .shoping_cart .count span {
+    position: absolute;
+    left: 530px;
+    top:2px;
+    color: rgb(207, 240, 23);
+    font-family:"Cabin", sans-serif;
+    font-weight: bold;
+
 
 }
 
-.navbar.signed-in .shoping_cart img
-{
+
+.navbar.signed-in .shoping_cart img{
     position: absolute;
-    width: 40px;
-    height: 40px;
-    left:350px;
-    top:10px;
-   
-   
-}
-.navbar.signed-in .shoping_cart span{
-    position: absolute;
-    left:360px;
-    top:45px;
-    color: white;
+    left: 509px;
+    top:15px;
+    color: rgb(202, 26, 26);
     font-family:"Cabin", sans-serif;
 
 
 }
+
+.navbar.signed-in .shoping_cart .write  span{
+    position: absolute;
+    left: 519px;
+    top:49px;
+    color: rgb(237, 230, 230);
+    font-family:"Cabin", sans-serif;
+
+
+}
+
+
+
 .navbar.signed-in .user_profile img
 {
     position: absolute;
@@ -340,7 +358,7 @@
     position: absolute;
     left:420px;
     top:45px;
-    color: white;
+    color: rgb(214, 207, 207);
     font-family:"Cabin", sans-serif;
 
 }

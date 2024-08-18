@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState ,useEffect} from 'react';
 import { Route, Routes, useLocation } from 'react-router-dom';
 import { CartProvider } from './context/CartContext';
 import SearchedProductsPage from './Component/serched_products/searched_products';
@@ -12,16 +12,14 @@ import Footer from './Component/Footer/Fotter';
 import Electronics_page from './pages/electronics_page/electronics';
 import FashionProducts_page from './pages/fashion_page/fashion';
 import Sportsproduct_page from './pages/sports_page/sports';
-import  Health_page from './pages/health_page/health'
-import Stationary_page from './pages/stationary_page/stationary'
-import Automotive_page from './pages/automotive_page/automotive'
-import Kitchen_page  from './pages/kitchen_page/kitchen'
-import Petsupply_page from './pages/petsupply_page/petsupply'
-import Beauty_page from './pages/beauty_page/beauty'
-import Gifts_page from './pages/gifts_page/gifts'
-import Luggage_page from './pages/lugaagage_page/lugaagage'
-
-
+import Health_page from './pages/health_page/health';
+import Stationary_page from './pages/stationary_page/stationary';
+import Automotive_page from './pages/automotive_page/automotive';
+import Kitchen_page from './pages/kitchen_page/kitchen';
+import Petsupply_page from './pages/petsupply_page/petsupply';
+import Beauty_page from './pages/beauty_page/beauty';
+import Gifts_page from './pages/gifts_page/gifts';
+import Luggage_page from './pages/lugaagage_page/lugaagage';
 
 import SignIn from './user_login_register/Signin/Signin';
 import SignUp from './user_login_register/Signup/Signup';
@@ -30,9 +28,9 @@ import Checkout from './Component/Checkout/Checkout';
 import banner1 from './assets/image/banner1.jpeg';
 import banner2 from './assets/image/banner2.jpg';
 import banner3 from './assets/image/banner3.png';
-import { 
+import {
   topProducts,
-  top_delas_on_smart_phones ,
+  top_delas_on_smart_phones,
   electronicsProducts,
   beautyProducts,
   fashionProducts,
@@ -50,6 +48,7 @@ function App() {
   const [searchQuery, setSearchQuery] = useState('');
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [userName, setUserName] = useState('');
+  const [totalItemCount, setTotalItemCount] = useState(0);
   const location = useLocation();
 
   const handleSignIn = (user) => {
@@ -61,6 +60,10 @@ function App() {
     setSearchQuery(query);
   };
 
+  const handleTotalCountChange = (count) => {
+    setTotalItemCount(count);
+  };
+
   useEffect(() => {
     if (location.pathname === '/') {
       setSearchQuery('');
@@ -68,36 +71,38 @@ function App() {
   }, [location.pathname]);
 
   const allProducts = [
-  ...topProducts,
-  ...top_delas_on_smart_phones ,
-  ...electronicsProducts,
-  ...fashionProducts,
-  ...sportsProducts,
-
-  ...beautyProducts,
-  
- 
-  ...healthProducts,
-  ...stationaryProducts,
-  ...automotiveProducts,
-  ...kitchenProducts,
-  ...petSupplyProducts,
-  ...giftProducts,
-  ...luggageProducts
+    ...topProducts,
+    ...top_delas_on_smart_phones,
+    ...electronicsProducts,
+    ...fashionProducts,
+    ...sportsProducts,
+    ...beautyProducts,
+    ...healthProducts,
+    ...stationaryProducts,
+    ...automotiveProducts,
+    ...kitchenProducts,
+    ...petSupplyProducts,
+    ...giftProducts,
+    ...luggageProducts
   ];
-  
+
   const images = [banner1, banner2, banner3];
 
   return (
     <CartProvider>
       <div className="App">
-        <Navbar onSearch={handleSearch} isAuthenticated={isAuthenticated} userName={userName} />
+        <Navbar
+          onSearch={handleSearch}
+          isAuthenticated={isAuthenticated}
+          userName={userName}
+          totalCount={totalItemCount}
+        />
         <Routes>
           <Route path="/" element={
             <>
               <Scroller />
               <Carousel images={images} />
-              <TopProducts_page searchQuery={''} isAuthenticated={isAuthenticated} />
+              <TopProducts_page searchQuery={searchQuery} isAuthenticated={isAuthenticated} />
               <Top_delas_on_smart_phones_page />
             </>
           } />
@@ -108,18 +113,14 @@ function App() {
           <Route path="/health" element={<Health_page searchQuery={searchQuery} isAuthenticated={isAuthenticated} />} />
           <Route path="/stationary" element={<Stationary_page searchQuery={searchQuery} isAuthenticated={isAuthenticated} />} />
           <Route path="/automotive" element={<Automotive_page searchQuery={searchQuery} isAuthenticated={isAuthenticated} />} />
-          <Route path="/kitchen" element={< Kitchen_page searchQuery={searchQuery} isAuthenticated={isAuthenticated} />} />
-          <Route path="/petsupply" element={< Petsupply_page searchQuery={searchQuery} isAuthenticated={isAuthenticated} />} />
-          <Route path="/beauty" element={< Beauty_page searchQuery={searchQuery} isAuthenticated={isAuthenticated} />} />
-          <Route path="/gifts" element={< Gifts_page searchQuery={searchQuery} isAuthenticated={isAuthenticated} />} />
-          <Route path="/luggage" element={< Luggage_page searchQuery={searchQuery} isAuthenticated={isAuthenticated} />} />
-
-          
-         
-
+          <Route path="/kitchen" element={<Kitchen_page searchQuery={searchQuery} isAuthenticated={isAuthenticated} />} />
+          <Route path="/petsupply" element={<Petsupply_page searchQuery={searchQuery} isAuthenticated={isAuthenticated} />} />
+          <Route path="/beauty" element={<Beauty_page searchQuery={searchQuery} isAuthenticated={isAuthenticated} />} />
+          <Route path="/gifts" element={<Gifts_page searchQuery={searchQuery} isAuthenticated={isAuthenticated} />} />
+          <Route path="/luggage" element={<Luggage_page searchQuery={searchQuery} isAuthenticated={isAuthenticated} />} />
           <Route path="/signin" element={<SignIn onSignIn={handleSignIn} />} />
           <Route path="/signup" element={<SignUp />} />
-          <Route path="/cart" element={<Cart isAuthenticated={isAuthenticated} />} />
+          <Route path="/cart" element={<Cart isAuthenticated={isAuthenticated} onTotalCountChange={handleTotalCountChange} />} />
           <Route path="/checkout" element={<Checkout />} />
         </Routes>
         <Footer />
