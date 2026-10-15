@@ -1,16 +1,12 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { beautyProducts } from './../../Products/Products'; // Import your products array
 import './beauty.css';
 import Message from '../../Component/addcartmessage/addcartmsg'; // Import the Message component
 
 const Beauty_page = ({ searchQuery, isAuthenticated }) => {
-  console.log("this is serach query",searchQuery)
   const [quantities, setQuantities] = useState({});
   const [showMessage, setShowMessage] = useState(false);
-
-  const navigate = useNavigate();
 
   const filteredProducts = beautyProducts.filter(product => {
     const productName = product.name.toLowerCase();
@@ -92,10 +88,4 @@ const Beauty_page = ({ searchQuery, isAuthenticated }) => {
   );
 };
 
-
-
-//nvjsvsjkvcnsjknvfskfvwnkandkdnakigiugui 
-diuhisufhgiufhf
 export default Beauty_page;
-
-
