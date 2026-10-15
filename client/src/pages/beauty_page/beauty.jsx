@@ -92,4 +92,10 @@ const Beauty_page = ({ searchQuery, isAuthenticated }) => {
   );
 };
 
+
+
+//nvjsvsjkvcnsjknvfskfvwnkandkdnakigiugui 
+diuhisufhgiufhf
 export default Beauty_page;
+
+
